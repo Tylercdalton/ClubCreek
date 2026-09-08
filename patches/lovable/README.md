@@ -2,6 +2,8 @@
 
 Apply these against the TanStack Start app in Lovable project `86103f67-e59e-4c37-ad94-2e8e042bbabd`.
 
+**Status:** Parts 1–2 were applied in Lovable (`absoluteUrl` + sitemap Content-Type). Part 3 (footer NAP, schema postalCode, fonts, llms.txt, concierge OG) is documented in `PART3.md` — the Lovable workspace ran out of credits before that turn.
+
 ## 1. Absolute OG / Twitter images
 
 Import `absoluteUrl` from `src/lib/site.ts` and wrap every `og:image` / `twitter:image` value. Live first HTML currently emits relative paths on `/`, `/book`, `/gallery`, `/area`, `/golf`, `/concierge`, and `/journal/:slug`. `/stay` already prefixes the origin — switch it to the helper.
