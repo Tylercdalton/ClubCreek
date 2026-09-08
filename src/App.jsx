@@ -1,21 +1,38 @@
 import React from 'react';
+import {
+  HOST_EMAIL,
+  HOST_PHONE_DISPLAY,
+  HOST_PHONE_E164,
+  SITE_NAME,
+} from './lib/site.js';
 
 const PHOTOS = {
-  hero: 'https://a0.muscache.com/im/pictures/miso/Hosting-591980174028397106/original/31781010-c7ff-40e3-87e1-9044ec7eb6f1.jpeg',
+  hero: 'https://clubcreekrental.lovable.app/__l5e/assets-v1/e135cc3c-5af9-4a4f-933e-7ce646f205c0/home-hero.webp',
 };
 
 function Nav() {
   return (
-    <header className="nav" style={{background:'#F6F2E8', borderBottom:'1px solid #E6DEC9'}}>
-      <div className="wrap nav-inner" style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'26px 0',maxWidth:'1360px',margin:'0 auto'}}>
-        <a href="#" className="word" aria-label="Club Creek home" style={{fontFamily:'Cormorant Garamond, serif',fontStyle:'italic',fontSize:34,letterSpacing:'-0.01em',color:'#181613',textDecoration:'none'}}>club creek</a>
-        <nav className="nav-links" style={{display:'flex',alignItems:'center',gap:38}}>
-          <a className="link" href="#stay">THE STAY</a>
-          <a className="link" href="#gallery">GALLERY</a>
-          <a className="link" href="#amenities">AMENITIES</a>
-          <a className="link" href="#auburn">AUBURN</a>
-          <a className="link" href="#concierge">CONCIERGE</a>
-          <a className="link link--book btn" href="#book" style={{padding:'18px 30px',fontSize:13,letterSpacing:'.24em',color:'#fff',background:'#181613',marginLeft:24,textDecoration:'none'}}>RESERVE</a>
+    <header className="nav">
+      <div className="wrap nav-inner">
+        <a href="#top" className="word" aria-label={`${SITE_NAME} home`}>
+          {SITE_NAME}
+        </a>
+        <nav className="nav-links" aria-label="Primary">
+          <a className="link" href="#stay">
+            THE HOUSE
+          </a>
+          <a className="link" href="#gallery">
+            GALLERY
+          </a>
+          <a className="link" href="#auburn">
+            AUBURN
+          </a>
+          <a className="link" href="#concierge">
+            CONCIERGE
+          </a>
+          <a className="link link--book btn" href="#book">
+            BOOK NOW
+          </a>
         </nav>
       </div>
     </header>
@@ -24,27 +41,35 @@ function Nav() {
 
 function Hero() {
   return (
-    <section style={{paddingTop:64, paddingBottom:72, background:'#F6F2E8'}}>
-      <div className="wrap" style={{maxWidth:'1360px',margin:'0 auto',padding:'0 56px'}}>
-        <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:44}}>
-          <div className="eyebrow" style={{fontFamily:'Jost, sans-serif',fontSize:12,fontWeight:500,letterSpacing:'.22em',textTransform:'uppercase',color:'#4A463F'}}>N° 01  ·  AUBURN UNIVERSITY CLUB  ·  AUBURN, ALABAMA</div>
-          <div className="meta" style={{fontFamily:'Jost, sans-serif',fontSize:14,letterSpacing:'.04em',color:'#4A463F'}}>10 min to Toomer’s Corner  ·  Jordan—Hare Stadium</div>
+    <section className="hero" id="top">
+      <div className="wrap">
+        <div className="hero-meta">
+          <div className="eyebrow">AUBURN · ALABAMA</div>
+          <div className="meta">10 min to Toomer’s Corner · Jordan–Hare Stadium</div>
         </div>
-        <div style={{display:'grid', gridTemplateColumns:'1.05fr 1fr', gap:64, alignItems:'end'}}>
+        <div className="hero-grid">
           <div>
-            <h1 className="display" style={{fontFamily:'Cormorant Garamond, serif',fontWeight:400,letterSpacing:'-0.012em',lineHeight:.95,fontSize:'clamp(72px, 11.5vw, 184px)',margin:0}}>Club<br/><span style={{fontStyle:'italic', color:'#4A463F'}}>Creek.</span></h1>
-            <p className="serif" style={{fontFamily:'Cormorant Garamond, serif',fontSize:'clamp(20px, 1.6vw, 24px)',color:'#4A463F',maxWidth:520,marginTop:28,fontStyle:'italic',lineHeight:1.45}}>
-              A private five-bedroom retreat inside the Auburn University Club — ten minutes from Jordan-Hare, a tee shot from the Robert Trent Jones course.
+            <h1 className="display">
+              The Hydrangea
+              <br />
+              <span className="display-italic">House</span>
+            </h1>
+            <p className="serif lede">
+              A serene retreat for game days, gatherings &amp; quiet weekends — a private
+              five-bedroom home inside the Auburn University Club.
             </p>
-            <div style={{display:'flex',gap:36,marginTop:48, flexWrap:'wrap'}}>
+            <div className="stats">
               <StatLine v="5" l="BEDROOMS" />
               <StatLine v="4½" l="BATHROOMS" />
               <StatLine v="10+" l="SLEEPS" />
               <StatLine v="3,600+" l="SQ FT" />
             </div>
+            <a className="btn btn-solid" href="#book">
+              Check Availability
+            </a>
           </div>
-          <div className="slot-frame" style={{aspectRatio:'4/5', width:'100%'}}>
-            <img src={PHOTOS.hero} alt="Club Creek living room" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:12}} />
+          <div className="slot-frame">
+            <img src={PHOTOS.hero} alt="Front exterior of The Hydrangea House at sunset in Auburn, Alabama" />
           </div>
         </div>
       </div>
@@ -52,89 +77,26 @@ function Hero() {
   );
 }
 
-function Welcome() {
+function StatLine({ v, l }) {
   return (
-    <section style={{background:'#fff',padding:'64px 0 32px 0'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px',textAlign:'center'}}>
-        <h2 style={{fontFamily:'Cormorant Garamond, serif',fontSize:44,marginBottom:18}}>Welcome to Club Creek</h2>
-        <p style={{fontSize:22, color:'#4A463F',maxWidth:700,margin:'0 auto'}}>Experience a private, luxurious retreat in the heart of Auburn. Perfect for families, golf getaways, and Auburn fans seeking comfort and style just minutes from campus.</p>
-      </div>
-    </section>
-  );
-}
-
-function Highlights() {
-  return (
-    <section style={{background:'#F6F2E8',padding:'32px 0'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px',display:'flex',gap:48,justifyContent:'center',flexWrap:'wrap'}}>
-        <div style={{flex:'1 1 200px',minWidth:180,textAlign:'center'}}>
-          <div style={{fontSize:36,marginBottom:8}}>🏡</div>
-          <div style={{fontWeight:600,fontSize:18}}>Spacious 5 Bedrooms</div>
-        </div>
-        <div style={{flex:'1 1 200px',minWidth:180,textAlign:'center'}}>
-          <div style={{fontSize:36,marginBottom:8}}>⛳️</div>
-          <div style={{fontWeight:600,fontSize:18}}>Golf Course Access</div>
-        </div>
-        <div style={{flex:'1 1 200px',minWidth:180,textAlign:'center'}}>
-          <div style={{fontSize:36,marginBottom:8}}>🚗</div>
-          <div style={{fontWeight:600,fontSize:18}}>10 min to Auburn</div>
-        </div>
-        <div style={{flex:'1 1 200px',minWidth:180,textAlign:'center'}}>
-          <div style={{fontSize:36,marginBottom:8}}>🌳</div>
-          <div style={{fontWeight:600,fontSize:18}}>Private, Wooded Lot</div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GalleryPreview() {
-  return (
-    <section style={{background:'#fff',padding:'48px 0'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px'}}>
-        <h3 style={{fontFamily:'Cormorant Garamond, serif',fontSize:32,marginBottom:24,textAlign:'center'}}>Gallery Preview</h3>
-        <div style={{display:'flex',gap:24,justifyContent:'center',flexWrap:'wrap'}}>
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-591980174028397106/original/31781010-c7ff-40e3-87e1-9044ec7eb6f1.jpeg" alt="Living Room" style={{width:220,height:280,objectFit:'cover',borderRadius:10}} />
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-591980174028397106/original/2e2e2e2e-2e2e-2e2e-2e2e-2e2e2e2e2e2e.jpeg" alt="Kitchen" style={{width:220,height:280,objectFit:'cover',borderRadius:10}} />
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-591980174028397106/original/3e3e3e3e-3e3e-3e3e-3e3e-3e3e3e3e3e3e.jpeg" alt="Bedroom" style={{width:220,height:280,objectFit:'cover',borderRadius:10}} />
-        </div>
-        <div style={{textAlign:'center',marginTop:24}}>
-          <a href="#gallery" style={{fontSize:18,color:'#181613',textDecoration:'underline'}}>View Full Gallery →</a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HomeCTA() {
-  return (
-    <section style={{background:'#F6F2E8',padding:'48px 0 64px 0'}}>
-      <div className="wrap" style={{maxWidth:'700px',margin:'0 auto',padding:'0 32px',textAlign:'center'}}>
-        <h3 style={{fontFamily:'Cormorant Garamond, serif',fontSize:32,marginBottom:18}}>Ready to book your stay?</h3>
-        <a href="#book" style={{display:'inline-block',padding:'18px 40px',fontSize:18,letterSpacing:'.18em',color:'#fff',background:'#181613',borderRadius:8,textDecoration:'none',fontWeight:600}}>Reserve Now</a>
-      </div>
-    </section>
-  );
-}
-    </section>
-  );
-}
-
-function StatLine({v, l}) {
-  return (
-    <div style={{display:'flex',flexDirection:'column'}}>
-      <div className="serif" style={{fontFamily:'Cormorant Garamond, serif',fontSize:42, lineHeight:1, letterSpacing:'-0.01em'}}>{v}</div>
-      <div className="eyebrow" style={{fontFamily:'Jost, sans-serif',fontSize:12,fontWeight:500,letterSpacing:'.22em',textTransform:'uppercase',color:'#4A463F',marginTop:8}}>{l}</div>
+    <div className="stat">
+      <div className="serif stat-v">{v}</div>
+      <div className="eyebrow">{l}</div>
     </div>
   );
 }
 
 function Stay() {
   return (
-    <section id="stay" style={{padding:'80px 0', background:'#fff'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px'}}>
-        <h2 style={{fontFamily:'Cormorant Garamond, serif',fontSize:48,marginBottom:24}}>The Stay</h2>
-        <p style={{fontSize:20, color:'#4A463F'}}>A detailed description of the Club Creek property, amenities, and what makes the stay unique. Add photos, highlights, and guest info here.</p>
+    <section id="stay" className="panel panel-light">
+      <div className="wrap narrow">
+        <p className="eyebrow">The House</p>
+        <h2>Five bedrooms, a chef&apos;s kitchen, a lawn of hydrangeas.</h2>
+        <p className="body">
+          The Hydrangea House (Club Creek to friends and family) is a private five-bedroom,
+          4.5-bath rental in Auburn, Alabama. Ten minutes from Jordan-Hare Stadium, built for
+          game weekends, Camp War Eagle, and quiet weeks on The Plains.
+        </p>
       </div>
     </section>
   );
@@ -142,10 +104,13 @@ function Stay() {
 
 function Gallery() {
   return (
-    <section id="gallery" style={{padding:'80px 0', background:'#F6F2E8'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px'}}>
-        <h2 style={{fontFamily:'Cormorant Garamond, serif',fontSize:48,marginBottom:24}}>Gallery</h2>
-        <p style={{fontSize:20, color:'#4A463F'}}>A showcase of property photos. Replace with a photo grid or carousel as needed.</p>
+    <section id="gallery" className="panel">
+      <div className="wrap">
+        <p className="eyebrow">Gallery</p>
+        <h2>Inside the house</h2>
+        <div className="gallery-row">
+          <img src={PHOTOS.hero} alt="The Hydrangea House exterior at sunset" />
+        </div>
       </div>
     </section>
   );
@@ -153,10 +118,16 @@ function Gallery() {
 
 function Amenities() {
   return (
-    <section id="amenities" style={{padding:'80px 0', background:'#fff'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px'}}>
-        <h2 style={{fontFamily:'Cormorant Garamond, serif',fontSize:48,marginBottom:24}}>Amenities</h2>
-        <p style={{fontSize:20, color:'#4A463F'}}>List of amenities and features available at Club Creek. Add icons or a grid for visual interest.</p>
+    <section id="amenities" className="panel panel-light">
+      <div className="wrap narrow">
+        <p className="eyebrow">Amenities</p>
+        <h2>Considered comfort</h2>
+        <ul className="amenity-list">
+          <li>Chef&apos;s kitchen and butler&apos;s pantry</li>
+          <li>Covered porch with fireplace</li>
+          <li>Two-car garage plus driveway parking</li>
+          <li>Dogs welcome — $75 per pet, per day; no cats</li>
+        </ul>
       </div>
     </section>
   );
@@ -164,33 +135,15 @@ function Amenities() {
 
 function Auburn() {
   return (
-    <section id="auburn" style={{padding:'80px 0', background:'#F6F2E8'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px'}}>
-        <h2 style={{fontFamily:'Cormorant Garamond, serif',fontSize:48,marginBottom:24}}>Auburn</h2>
-        <p style={{fontSize:20, color:'#4A463F',marginBottom:32}}>Discover the charm of Auburn, Alabama—home to Auburn University, vibrant downtown, and beautiful parks. Enjoy local dining, sports, and Southern hospitality just minutes from Club Creek.</p>
-        <div style={{display:'flex',gap:48,flexWrap:'wrap',alignItems:'flex-start'}}>
-          <div style={{flex:'2 1 320px'}}>
-            <h3 style={{fontFamily:'Jost, sans-serif',fontSize:24,marginBottom:16,color:'#181613'}}>Things to Do Nearby</h3>
-            <ul style={{fontSize:18,lineHeight:1.7,color:'#4A463F',paddingLeft:20}}>
-              <li>Stroll downtown Auburn and visit Toomer’s Corner</li>
-              <li>Catch a game at Jordan–Hare Stadium</li>
-              <li>Golf at Robert Trent Jones Trail</li>
-              <li>Explore Chewacla State Park’s trails and waterfalls</li>
-              <li>Dine at local favorites: Acre, The Hound, Hamilton’s</li>
-              <li>Visit the Jule Collins Smith Museum of Fine Art</li>
-            </ul>
-          </div>
-          <div style={{flex:'1 1 260px',minWidth:260}}>
-            <div style={{background:'#fff',borderRadius:12,boxShadow:'0 2px 12px rgba(0,0,0,0.07)',padding:12}}>
-              <div style={{width:'100%',height:220,background:'#e6dec9',borderRadius:8,display:'flex',alignItems:'center',justifyContent:'center',color:'#4A463F',fontSize:18,fontWeight:500}}>
-                [Map of Auburn Placeholder]
-              </div>
-              <div style={{marginTop:12,textAlign:'center'}}>
-                <a href="https://goo.gl/maps/2Qw8Qw8Qw8Qw8Qw8A" target="_blank" rel="noopener noreferrer" style={{color:'#181613',textDecoration:'underline',fontSize:16}}>View on Google Maps</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="auburn" className="panel">
+      <div className="wrap">
+        <p className="eyebrow">Auburn</p>
+        <h2>On the Plains</h2>
+        <p className="body">
+          Distances from The Hydrangea House: about ten minutes to Jordan-Hare, Toomer&apos;s
+          Corner, and campus. The house sits inside the Auburn University Club, a private golf
+          community.
+        </p>
       </div>
     </section>
   );
@@ -198,10 +151,13 @@ function Auburn() {
 
 function Concierge() {
   return (
-    <section id="concierge" style={{padding:'80px 0', background:'#fff'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px'}}>
-        <h2 style={{fontFamily:'Cormorant Garamond, serif',fontSize:48,marginBottom:24}}>Concierge</h2>
-        <p style={{fontSize:20, color:'#4A463F'}}>Concierge services, special requests, and guest support information. Add contact forms or service details here.</p>
+    <section id="concierge" className="panel panel-light">
+      <div className="wrap narrow">
+        <p className="eyebrow">Concierge</p>
+        <h2>How may we help?</h2>
+        <p className="body">
+          Golf cart rental, pre-arrival provisioning, and breakfast kits — ask when you book.
+        </p>
       </div>
     </section>
   );
@@ -209,12 +165,55 @@ function Concierge() {
 
 function Reserve() {
   return (
-    <section id="book" style={{padding:'80px 0', background:'#F6F2E8'}}>
-      <div className="wrap" style={{maxWidth:'1100px',margin:'0 auto',padding:'0 32px'}}>
-        <h2 style={{fontFamily:'Cormorant Garamond, serif',fontSize:48,marginBottom:24}}>Reserve</h2>
-        <p style={{fontSize:20, color:'#4A463F'}}>Reservation and booking information. Add a booking form or call-to-action button here.</p>
+    <section id="book" className="panel">
+      <div className="wrap narrow">
+        <p className="eyebrow">Book direct</p>
+        <h2>Check availability</h2>
+        <p className="body">
+          Live calendar and rates are on the production booking page. Same house, no service fees.
+        </p>
+        <a className="btn btn-solid" href="https://clubcreekrental.lovable.app/book">
+          Open the live calendar
+        </a>
       </div>
     </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="wrap footer-grid">
+        <div>
+          <p className="word">{SITE_NAME}</p>
+          <p className="body">
+            A serene retreat for game days, gatherings &amp; quiet weekends in Auburn, Alabama.
+          </p>
+        </div>
+        <div>
+          <p className="eyebrow">Contact</p>
+          <p className="serif footer-kicker">Text or email your hosts.</p>
+          <p className="body">Auburn, Alabama 36832</p>
+          <ul className="footer-contact">
+            <li>
+              <a href={`tel:${HOST_PHONE_E164}`}>{HOST_PHONE_DISPLAY}</a>
+            </li>
+            <li>
+              <a href={`mailto:${HOST_EMAIL}`}>{HOST_EMAIL}</a>
+            </li>
+          </ul>
+          <p className="fine">Reply within the hour · 8a–8p CT</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function MobileBookBar() {
+  return (
+    <div className="mobile-book-bar">
+      <a href="#book">Check Availability</a>
+    </div>
   );
 }
 
@@ -223,78 +222,14 @@ export default function App() {
     <>
       <Nav />
       <Hero />
-      <Welcome />
-      <Highlights />
-      <GalleryPreview />
-      <HomeCTA />
       <Stay />
       <Gallery />
       <Amenities />
       <Auburn />
       <Concierge />
       <Reserve />
+      <Footer />
+      <MobileBookBar />
     </>
   );
 }
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
-}
-
-export default App

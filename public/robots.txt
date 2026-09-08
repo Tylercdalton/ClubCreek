@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clubcreekrental.lovable.app/sitemap.xml

@@ -1,16 +1,28 @@
-# React + Vite
+# The Hydrangea House (Club Creek)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Guest-facing brand is **The Hydrangea House**. Club Creek remains the property nickname.
 
-Currently, two official plugins are available:
+Production site: https://clubcreekrental.lovable.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## SEO notes (this branch)
 
-## React Compiler
+- Homepage `og:image` / `twitter:image` use absolute `https://` URLs (social crawlers cannot resolve site-relative `/__l5e/...` paths).
+- `public/sitemap.xml` is static XML. Vite dev/preview force `Content-Type: application/xml; charset=utf-8`. `public/_headers` covers Cloudflare-style hosts.
+- Footer (and a crawlable `<footer class="seo-contact">` in `index.html`) expose the host phone and email already stored in the live `ContactReveal` component — not invented:
+  - `(334) 797-1012`
+  - `tdalton508@gmail.com`
+- LodgingBusiness JSON-LD uses Auburn, AL **36832** + geo (already on the live `/stay` schema). No street number is published in the repo, so none is added. `containedInPlace` is Auburn University Club → Auburn.
+- Google Fonts CSS uses `display=swap`, `preload`, and a `media="print"` / `onload` swap so the stylesheet is not render-blocking.
+- `public/llms.txt` and `og:site_name` use Hydrangea House.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Local
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+curl -sI http://localhost:5173/sitemap.xml | grep -i content-type
+curl -s http://localhost:5173/ | grep -E 'og:image|twitter:image|mailto:|tel:'
+```
