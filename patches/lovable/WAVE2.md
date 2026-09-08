@@ -1,6 +1,8 @@
-# Wave 2 — apply in Lovable, then Publish
+# Wave 2 — historical Lovable notes (do not publish)
 
-**Tyler action if credits are empty:** Add credits at https://lovable.dev/settings/billing, paste this file into the Club Creek Direct chat, then click **Publish** so `clubcreekrental.lovable.app` updates.
+Owner decision 2026-09-08: production is this GitHub repo → Cloudflare Pages. Do not apply this file in Lovable for ship.
+
+The remainder is a snapshot of the old TanStack preview gaps.
 
 Wave 1 (absolute OG on most routes + sitemap `application/xml`) is already **live** after the 2026-09-08 publish. Keep `src/server.ts` `forceSitemapXmlContentType`. Do not invent a street number, extra testimonials, or star ratings.
 

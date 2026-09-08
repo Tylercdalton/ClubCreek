@@ -1,14 +1,10 @@
-import React from 'react';
 import {
+  HERO_IMAGE_PATH,
   HOST_EMAIL,
   HOST_PHONE_DISPLAY,
   HOST_PHONE_E164,
   SITE_NAME,
 } from './lib/site.js';
-
-const PHOTOS = {
-  hero: 'https://clubcreekrental.lovable.app/__l5e/assets-v1/e135cc3c-5af9-4a4f-933e-7ce646f205c0/home-hero.webp',
-};
 
 function Nav() {
   return (
@@ -69,7 +65,7 @@ function Hero() {
             </a>
           </div>
           <div className="slot-frame">
-            <img src={PHOTOS.hero} alt="Front exterior of The Hydrangea House at sunset in Auburn, Alabama" />
+            <img src={HERO_IMAGE_PATH} alt="Front exterior of The Hydrangea House at sunset in Auburn, Alabama" />
           </div>
         </div>
       </div>
@@ -98,10 +94,8 @@ function Stay() {
           game weekends, Camp War Eagle, and quiet weeks on The Plains.
         </p>
         <p className="body">
-          See the{' '}
-          <a href="https://clubcreekrental.lovable.app/stay">full house tour</a>, the{' '}
-          <a href="https://clubcreekrental.lovable.app/gallery">photo gallery</a>, or{' '}
-          <a href="https://clubcreekrental.lovable.app/book">book direct</a>.
+          See the <a href="#gallery">photo gallery</a> or{' '}
+          <a href="#book">text the hosts to book direct</a>.
         </p>
       </div>
     </section>
@@ -115,7 +109,7 @@ function Gallery() {
         <p className="eyebrow">Gallery</p>
         <h2>Inside the house</h2>
         <div className="gallery-row">
-          <img src={PHOTOS.hero} alt="The Hydrangea House exterior at sunset" />
+          <img src={HERO_IMAGE_PATH} alt="The Hydrangea House exterior at sunset" />
         </div>
       </div>
     </section>
@@ -148,10 +142,9 @@ function Auburn() {
         <p className="body">
           Distances from The Hydrangea House: about ten minutes to Jordan-Hare, Toomer&apos;s
           Corner, and campus. The house sits inside the Auburn University Club, a private golf
-          community. Read the{' '}
-          <a href="https://clubcreekrental.lovable.app/area">Auburn area guide</a>,{' '}
-          <a href="https://clubcreekrental.lovable.app/golf">golf drive times</a>, and{' '}
-          <a href="https://clubcreekrental.lovable.app/journal">golf &amp; gameday journal</a>.
+          community. Golf and campus notes live in this{' '}
+          <a href="#auburn">Auburn section</a>; <a href="#book">ask the hosts</a> when you
+          book.
         </p>
       </div>
     </section>
@@ -188,7 +181,7 @@ const HOME_FAQS = [
   },
   {
     q: 'Do you book direct, and are there service fees?',
-    a: 'Yes — book direct through the live calendar on this site for real-time rates, instant confirmation, and no third-party service fees.',
+    a: 'Yes — text or email the hosts to check dates and rates. Bookings are direct, with no third-party service fees.',
   },
 ];
 
@@ -230,11 +223,16 @@ function Reserve() {
         <p className="eyebrow">Book direct</p>
         <h2>Check availability</h2>
         <p className="body">
-          Live calendar and rates are on the production booking page. Same house, no service fees.
+          Text or email the hosts with your dates. Same house, no third-party service fees.
         </p>
-        <a className="btn btn-solid" href="https://clubcreekrental.lovable.app/book">
-          Open the live calendar
-        </a>
+        <div className="stats">
+          <a className="btn btn-solid" href={`tel:${HOST_PHONE_E164}`}>
+            {HOST_PHONE_DISPLAY}
+          </a>
+          <a className="btn" href={`mailto:${HOST_EMAIL}`}>
+            {HOST_EMAIL}
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -254,16 +252,16 @@ function Footer() {
           <p className="eyebrow">Explore</p>
           <ul className="footer-contact">
             <li>
-              <a href="https://clubcreekrental.lovable.app/golf">Auburn golf</a>
+              <a href="#auburn">Auburn &amp; golf</a>
             </li>
             <li>
-              <a href="https://clubcreekrental.lovable.app/area">Area guide</a>
+              <a href="#gallery">Gallery</a>
             </li>
             <li>
-              <a href="https://clubcreekrental.lovable.app/journal">Journal</a>
+              <a href="#stay">The house</a>
             </li>
             <li>
-              <a href="https://clubcreekrental.lovable.app/book">Book direct</a>
+              <a href="#book">Book direct</a>
             </li>
           </ul>
         </div>

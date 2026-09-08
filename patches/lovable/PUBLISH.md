@@ -1,12 +1,10 @@
-# How production actually updates (`clubcreekrental.lovable.app`)
+# Retired — Lovable is not production
 
-This GitHub repo is a Vite scaffold. **Pushing here does not publish the live site.**
+Owner decision 2026-09-08: do **not** publish Club Creek / Hydrangea House from Lovable.
 
-Live HTML is the Lovable TanStack Start app:
+Ship path: GitHub `Tylercdalton/ClubCreek` → Cloudflare Pages. See the repo root `README.md`.
 
-- Project: Club Creek Direct (`86103f67-e59e-4c37-ad94-2e8e042bbabd`)
-- Editor: https://lovable.dev/projects/86103f67-e59e-4c37-ad94-2e8e042bbabd
-- Production: https://clubcreekrental.lovable.app
+The notes below are historical (how the old TanStack preview was published).
 
 ## Publish steps
 
