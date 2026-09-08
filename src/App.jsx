@@ -97,6 +97,12 @@ function Stay() {
           4.5-bath rental in Auburn, Alabama. Ten minutes from Jordan-Hare Stadium, built for
           game weekends, Camp War Eagle, and quiet weeks on The Plains.
         </p>
+        <p className="body">
+          See the{' '}
+          <a href="https://clubcreekrental.lovable.app/stay">full house tour</a>, the{' '}
+          <a href="https://clubcreekrental.lovable.app/gallery">photo gallery</a>, or{' '}
+          <a href="https://clubcreekrental.lovable.app/book">book direct</a>.
+        </p>
       </div>
     </section>
   );
@@ -142,8 +148,62 @@ function Auburn() {
         <p className="body">
           Distances from The Hydrangea House: about ten minutes to Jordan-Hare, Toomer&apos;s
           Corner, and campus. The house sits inside the Auburn University Club, a private golf
-          community.
+          community. Read the{' '}
+          <a href="https://clubcreekrental.lovable.app/area">Auburn area guide</a>,{' '}
+          <a href="https://clubcreekrental.lovable.app/golf">golf drive times</a>, and{' '}
+          <a href="https://clubcreekrental.lovable.app/journal">golf &amp; gameday journal</a>.
         </p>
+      </div>
+    </section>
+  );
+}
+
+function Review() {
+  return (
+    <section id="reviews" className="panel panel-light">
+      <div className="wrap narrow">
+        <p className="eyebrow">Guest Reviews</p>
+        <blockquote className="serif lede">
+          “I would strongly recommend staying with Emma. Her home was perfect for our game weekend
+          with friends and family! Emma was very responsive and everything was as advertised!”
+        </blockquote>
+        <p className="body">— Jed, Dallas, Texas</p>
+      </div>
+    </section>
+  );
+}
+
+const HOME_FAQS = [
+  {
+    q: 'How many guests can the Hydrangea House sleep?',
+    a: 'The house sleeps 10 across five bedrooms — one king bed and four queen beds — with 4.5 baths so no one is doubling up.',
+  },
+  {
+    q: 'How far is the house from Jordan-Hare Stadium and Auburn’s campus?',
+    a: 'It’s a ten-minute drive to Jordan-Hare Stadium, Toomer’s Corner, and Auburn University’s campus — close enough for game day, quiet enough for the weekend.',
+  },
+  {
+    q: 'Are pets allowed?',
+    a: 'Well-behaved dogs are welcome on request with a $75 per pet, per day fee. No cats. The backyard is fully fenced, and all pet waste must be picked up.',
+  },
+  {
+    q: 'Do you book direct, and are there service fees?',
+    a: 'Yes — book direct through the live calendar on this site for real-time rates, instant confirmation, and no third-party service fees.',
+  },
+];
+
+function Faq() {
+  return (
+    <section id="faq" className="panel">
+      <div className="wrap narrow">
+        <p className="eyebrow">Frequently asked</p>
+        <h2>Answers before you ask</h2>
+        {HOME_FAQS.map((f) => (
+          <details key={f.q} className="faq-item">
+            <summary>{f.q}</summary>
+            <p className="body">{f.a}</p>
+          </details>
+        ))}
       </div>
     </section>
   );
@@ -191,6 +251,23 @@ function Footer() {
           </p>
         </div>
         <div>
+          <p className="eyebrow">Explore</p>
+          <ul className="footer-contact">
+            <li>
+              <a href="https://clubcreekrental.lovable.app/golf">Auburn golf</a>
+            </li>
+            <li>
+              <a href="https://clubcreekrental.lovable.app/area">Area guide</a>
+            </li>
+            <li>
+              <a href="https://clubcreekrental.lovable.app/journal">Journal</a>
+            </li>
+            <li>
+              <a href="https://clubcreekrental.lovable.app/book">Book direct</a>
+            </li>
+          </ul>
+        </div>
+        <div>
           <p className="eyebrow">Contact</p>
           <p className="serif footer-kicker">Text or email your hosts.</p>
           <p className="body">Auburn, Alabama 36832</p>
@@ -226,6 +303,8 @@ export default function App() {
       <Gallery />
       <Amenities />
       <Auburn />
+      <Review />
+      <Faq />
       <Concierge />
       <Reserve />
       <Footer />

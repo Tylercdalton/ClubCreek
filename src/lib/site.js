@@ -21,3 +21,16 @@ export const GEO = { latitude: 32.6099, longitude: -85.4808 };
 export const OG_IMAGE = absoluteUrl(
   '/__l5e/assets-v1/e135cc3c-5af9-4a4f-933e-7ce646f205c0/home-hero.webp',
 );
+
+/** Shared social-image contract — always absolute https + dimensions. */
+export const OG_IMAGE_WIDTH = '1920';
+export const OG_IMAGE_HEIGHT = '1200';
+
+export function socialImageMeta(pathOrUrl) {
+  const url = absoluteUrl(pathOrUrl);
+  return {
+    url,
+    width: OG_IMAGE_WIDTH,
+    height: OG_IMAGE_HEIGHT,
+  };
+}

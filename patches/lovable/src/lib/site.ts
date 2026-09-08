@@ -17,3 +17,18 @@ export const HOST_EMAIL = "tdalton508@gmail.com";
 /** Already present on the /stay LodgingBusiness schema. No street number exists in-repo. */
 export const HOST_POSTAL_CODE = "36832";
 export const GEO = { latitude: 32.6099, longitude: -85.4808 };
+
+/** Shared social-image contract — always absolute https + dimensions. */
+export const OG_IMAGE_WIDTH = "1920";
+export const OG_IMAGE_HEIGHT = "1200";
+
+export function socialImageMeta(pathOrUrl: string) {
+  const url = absoluteUrl(pathOrUrl);
+  return [
+    { property: "og:image", content: url },
+    { property: "og:image:secure_url", content: url },
+    { property: "og:image:width", content: OG_IMAGE_WIDTH },
+    { property: "og:image:height", content: OG_IMAGE_HEIGHT },
+    { name: "twitter:image", content: url },
+  ];
+}

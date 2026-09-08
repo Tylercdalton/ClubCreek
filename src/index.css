@@ -189,6 +189,17 @@ a {
   padding-left: 1.1rem;
 }
 
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
 .site-footer {
   background: var(--ink);
   color: var(--cream);
@@ -258,7 +269,7 @@ a {
   }
 
   .footer-grid {
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.6fr 0.8fr 1fr;
   }
 
   .mobile-book-bar {
