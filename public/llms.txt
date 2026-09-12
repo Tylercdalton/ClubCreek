@@ -1,0 +1,23 @@
+# The Hydrangea House
+
+> A private five-bedroom retreat inside the Auburn University Club in Auburn, Alabama — booked direct, no service fees.
+
+The Hydrangea House (property nickname: Club Creek) is a creekside home ten minutes from Toomer's Corner and Jordan-Hare Stadium, available for game weekends, family stays, Camp War Eagle, Parents Weekend, and quiet weeks away.
+
+This site is a static Vite → Cloudflare Pages build: the homepage plus a dedicated Auburn graduation landing page.
+
+## Contact
+
+- Phone: (334) 797-1012
+- Email: tdalton508@gmail.com
+- Location: Auburn, Alabama 36832 (Auburn University Club community; street number not published)
+
+## Sections
+
+- [Home](/): Overview of the house.
+- [Auburn graduation house](/auburn-graduation/): Spring and December commencement weekend stay.
+- [The House](/#stay): Rooms and setting.
+- [Gallery](/#gallery): Photographs.
+- [Auburn](/#auburn): Distances to Jordan-Hare, campus, and golf.
+- [Concierge](/#concierge): Golf cart, provisioning, breakfast kits.
+- [Book](/#book): Text or email the hosts to check dates.
