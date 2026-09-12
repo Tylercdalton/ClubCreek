@@ -4,7 +4,7 @@
 
 The Hydrangea House (property nickname: Club Creek) is a creekside home ten minutes from Toomer's Corner and Jordan-Hare Stadium, available for game weekends, family stays, Camp War Eagle, Parents Weekend, and quiet weeks away.
 
-This site is a single static page (Vite → Cloudflare Pages). In-page sections are listed below.
+This site is a static Vite → Cloudflare Pages build: the homepage plus a dedicated Auburn graduation landing page.
 
 ## Contact
 
@@ -15,6 +15,7 @@ This site is a single static page (Vite → Cloudflare Pages). In-page sections 
 ## Sections
 
 - [Home](/): Overview of the house.
+- [Auburn graduation house](/auburn-graduation/): Spring and December commencement weekend stay.
 - [The House](/#stay): Rooms and setting.
 - [Gallery](/#gallery): Photographs.
 - [Auburn](/#auburn): Distances to Jordan-Hare, campus, and golf.

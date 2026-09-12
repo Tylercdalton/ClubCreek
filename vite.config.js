@@ -39,7 +39,13 @@ function sitemapXmlType(origin) {
       return rewriteOrigin(html, origin)
     },
     closeBundle() {
-      for (const file of ['index.html', 'sitemap.xml', 'robots.txt', 'llms.txt']) {
+      for (const file of [
+        'index.html',
+        'auburn-graduation/index.html',
+        'sitemap.xml',
+        'robots.txt',
+        'llms.txt',
+      ]) {
         const disk = resolve(ROOT, 'dist', file)
         if (!existsSync(disk)) continue
         writeFileSync(disk, rewriteOrigin(readFileSync(disk, 'utf8'), origin))
@@ -52,5 +58,13 @@ export default defineConfig(({ mode }) => {
   const siteUrl = resolveSiteUrl(mode)
   return {
     plugins: [react(), sitemapXmlType(siteUrl)],
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolve(ROOT, 'index.html'),
+          graduation: resolve(ROOT, 'auburn-graduation/index.html'),
+        },
+      },
+    },
   }
 })

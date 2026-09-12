@@ -8,6 +8,9 @@ export const SITE_URL = (
 ).replace(/\/$/, '');
 export const SITE_NAME = 'The Hydrangea House';
 
+/** Dedicated commencement landing page (real HTML document, not a hash). */
+export const GRADUATION_PATH = '/auburn-graduation/';
+
 export function absoluteUrl(pathOrUrl) {
   if (!pathOrUrl) return SITE_URL;
   if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;

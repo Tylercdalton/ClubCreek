@@ -20,9 +20,9 @@ This repo is a **static Vite + React SPA**, not TanStack Start / SSR.
 | Build | `npm run build` |
 | Output | `dist/` |
 | Server | None. No Pages Functions, no Worker SSR. |
-| Routes | One HTML document (`/`). In-page sections: `#stay` `#gallery` `#auburn` `#concierge` `#book`. |
-| Sitemap | `/` only. `/stay` `/gallery` `/book` `/golf` `/journal` **do not exist here** and must not be listed. |
-| SEO HTML | Titles, canonical, OG, FAQPage, Review, and crawlable `tel:`/`mailto:` ship in `index.html` (not only in JS). |
+| Routes | Two HTML documents: `/` and `/auburn-graduation/`. Home sections: `#stay` `#gallery` `#auburn` `#concierge` `#book`. |
+| Sitemap | `/` and `/auburn-graduation/`. Old Lovable paths (`/stay` `/gallery` `/book` `/golf` `/journal`) **do not exist here** and must not be listed. |
+| SEO HTML | Titles, canonical, OG, FAQPage, Review, and crawlable `tel:`/`mailto:` ship in each HTML document (not only in JS). |
 | Booking | No Hospitable widget and no booking env vars in this repo. Guests text/email the hosts. |
 | Photos | Hero is `public/images/home-hero.webp` (same-origin). |
 
@@ -57,7 +57,7 @@ npm run pages:deploy
 
 1. **Pages project** `hydrangea-house` is not on the account yet — create it in the dashboard (one-liner above).
 2. **Hospitable live calendar** is not in this repo. No widget key / env var to set. Booking is phone + email until a widget is added later.
-3. **Deep routes** from the old Lovable app (`/stay`, `/book`, `/gallery`, `/area`, `/golf`, `/journal`, …) 404 here. Do not add a catch-all `/* → /index.html` rewrite just to hide that — it would serve the homepage at those URLs and duplicate SEO.
+3. **Deep routes** from the old Lovable app (`/stay`, `/book`, `/gallery`, `/area`, `/golf`, `/journal`, …) 404 here. `/auburn-graduation/` is a real second HTML document. Do not add a catch-all `/* → /index.html` rewrite — it would serve the homepage at those old URLs and duplicate SEO.
 4. **Redirects from `clubcreekrental.lovable.app`** cannot be configured in this repo. After Pages is live, add 301s on the Lovable/custom-domain side (or a Cloudflare redirect on a hostname you control) to `https://hydrangea-house.pages.dev` (or the custom domain).
 5. **Custom domain** (optional): attach it on the Pages project, then set `VITE_SITE_URL` and rebuild so canonical/OG/sitemap match.
 
@@ -76,11 +76,13 @@ npm run build
 ```bash
 curl -sI http://localhost:5173/sitemap.xml | grep -i content-type
 curl -s http://localhost:5173/ | grep -E 'og:image|twitter:image|mailto:|tel:|FAQPage'
+curl -s http://localhost:5173/auburn-graduation/ | grep -E 'Coming to Auburn for graduation|Auburn Graduation House|FAQPage'
 ```
 
 ## SEO (this branch)
 
 - Absolute `og:image` / `twitter:image` (`__SITE_ORIGIN__/images/home-hero.webp`) plus width/height.
 - Crawlable NAP from existing ContactReveal values only: `(334) 797-1012`, `tdalton508@gmail.com`, Auburn AL **36832**. No street number.
-- FAQPage from the four on-page FAQs. Review JSON-LD for the on-page Jed / Dallas quote only — **no AggregateRating**.
+- FAQPage from the four on-page home FAQs. Review JSON-LD for the on-page Jed / Dallas quote only — **no AggregateRating**.
+- `/auburn-graduation/` is a separate HTML document (Tyler’s commencement hook as the H1) with its own title, canonical, OG, FAQPage, and BreadcrumbList. No invented reviews.
 - `llms.txt` uses Hydrangea House (Club Creek = nickname).
