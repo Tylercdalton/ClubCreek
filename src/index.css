@@ -227,14 +227,23 @@ a {
 }
 
 .slot-frame {
+  position: relative;
+  width: 100%;
   aspect-ratio: 4 / 5;
+  overflow: hidden;
 }
 
 .slot-frame img,
 .gallery-row img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.slot-frame img {
+  position: absolute;
+  inset: 0;
 }
 
 .panel {
@@ -266,10 +275,15 @@ a {
   font-size: 1.25rem;
 }
 
+#book {
+  scroll-margin-top: 96px;
+  scroll-margin-bottom: 108px;
+}
+
 .site-footer {
   background: var(--ink);
   color: var(--cream);
-  padding: 64px 0 120px;
+  padding: 64px 0 168px;
 }
 
 .footer-grid {
