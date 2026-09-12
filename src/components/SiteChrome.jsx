@@ -136,7 +136,7 @@ export function Reserve({
         <p className="eyebrow">Book direct</p>
         <h2>{title}</h2>
         <p className="body">{lede}</p>
-        <div className="stats cta-row">
+        <div className="cta-row">
           <a className="btn btn-solid" href={`tel:${HOST_PHONE_E164}`}>
             {HOST_PHONE_DISPLAY}
           </a>

@@ -1,7 +1,7 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
 import { HERO_IMAGE_PATH, SITE_NAME } from './lib/site.js';
 
-export const GRAD_FAQS = [
+const GRAD_FAQS = [
   {
     q: 'How many people can stay at The Hydrangea House for Auburn graduation weekend?',
     a: 'The house sleeps 10 across five bedrooms — one king bed and four queen beds — with 4.5 baths so parents, grandparents, and siblings are not doubling up.',
