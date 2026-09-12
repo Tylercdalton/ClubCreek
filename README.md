@@ -13,16 +13,16 @@ Override at build time with `VITE_SITE_URL` (no trailing slash), e.g. a custom d
 
 ## Reality check (SPA vs SSR)
 
-This repo is a **static Vite + React SPA**, not TanStack Start / SSR.
+This repo is a **static Vite + React multi-page app**, not TanStack Start / SSR.
 
 | Fact | Detail |
 | --- | --- |
 | Build | `npm run build` |
 | Output | `dist/` |
 | Server | None. No Pages Functions, no Worker SSR. |
-| Routes | One HTML document (`/`). In-page sections: `#stay` `#gallery` `#auburn` `#concierge` `#book`. |
-| Sitemap | `/` only. `/stay` `/gallery` `/book` `/golf` `/journal` **do not exist here** and must not be listed. |
-| SEO HTML | Titles, canonical, OG, FAQPage, Review, and crawlable `tel:`/`mailto:` ship in `index.html` (not only in JS). |
+| Routes | `/` (`index.html`) and `/auburn-graduation-house` (`auburn-graduation-house/index.html`). Home sections: `#stay` `#gallery` `#auburn` `#concierge` `#book`. |
+| Sitemap | `/` and `/auburn-graduation-house`. `/stay` `/gallery` `/book` `/golf` `/journal` **do not exist here** and must not be listed. |
+| SEO HTML | Titles, canonical, OG, FAQPage, Review, and crawlable `tel:`/`mailto:` ship in each HTML document (not only in JS). |
 | Booking | No Hospitable widget and no booking env vars in this repo. Guests text/email the hosts. |
 | Photos | Hero is `public/images/home-hero.webp` (same-origin). |
 
@@ -76,11 +76,13 @@ npm run build
 ```bash
 curl -sI http://localhost:5173/sitemap.xml | grep -i content-type
 curl -s http://localhost:5173/ | grep -E 'og:image|twitter:image|mailto:|tel:|FAQPage'
+curl -s http://localhost:5173/auburn-graduation-house | grep -E 'canonical|Auburn Graduation House|FAQPage'
 ```
 
 ## SEO (this branch)
 
 - Absolute `og:image` / `twitter:image` (`__SITE_ORIGIN__/images/home-hero.webp`) plus width/height.
 - Crawlable NAP from existing ContactReveal values only: `(334) 797-1012`, `tdalton508@gmail.com`, Auburn AL **36832**. No street number.
-- FAQPage from the four on-page FAQs. Review JSON-LD for the on-page Jed / Dallas quote only — **no AggregateRating**.
+- FAQPage from the four on-page home FAQs. Review JSON-LD for the on-page Jed / Dallas quote only — **no AggregateRating**.
+- `/auburn-graduation-house` has its own title, canonical, OG, WebPage + BreadcrumbList + FAQPage JSON-LD. LodgingBusiness/VacationRental uses the same `@id` as home. No invented reviews or ratings.
 - `llms.txt` uses Hydrangea House (Club Creek = nickname).
