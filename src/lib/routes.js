@@ -1,2 +1,3 @@
-/** Pretty URL for the graduation landing page (Cloudflare Pages directory index). */
-export const GRADUATION_PATH = '/auburn-graduation-house';
+/** Pretty URLs for static landing pages (Cloudflare Pages directory indexes). */
+export const GRADUATION_PATH = '/auburn-graduation-house/';
+export const GOLF_PATH = '/auburn-golf-getaway/';

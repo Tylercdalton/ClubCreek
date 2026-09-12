@@ -1,4 +1,5 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
+import { GOLF_PATH } from './lib/routes.js';
 import { HERO_IMAGE_PATH, SITE_NAME } from './lib/site.js';
 
 const GRAD_FAQS = [
@@ -79,6 +80,7 @@ function Hero() {
             <img
               src={HERO_IMAGE_PATH}
               alt="The Hydrangea House in Auburn, Alabama — a five-bedroom graduation weekend rental near Auburn University"
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -277,6 +279,7 @@ function Related() {
           <a href="/#stay">The house</a>
           <a href="/#gallery">Gallery</a>
           <a href="/#auburn">Auburn &amp; campus</a>
+          <a href={GOLF_PATH}>Golf getaway</a>
           <a href="/#concierge">Concierge</a>
           <a href="#book">Book direct</a>
         </div>

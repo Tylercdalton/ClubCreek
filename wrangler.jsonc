@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
+  // Pages project name is hydrangea-house.
+  // Public production hostname is https://hydrangea-house-d7s.pages.dev
+  // (hydrangea-house.pages.dev is a different, unrelated site).
   "name": "hydrangea-house",
   "compatibility_date": "2026-09-08",
   "pages_build_output_dir": "./dist"
