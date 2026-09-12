@@ -76,6 +76,7 @@ function sitemapXmlType(origin) {
 export default defineConfig(({ mode }) => {
   const siteUrl = resolveSiteUrl(mode)
   return {
+    appType: 'mpa',
     plugins: [react(), sitemapXmlType(siteUrl)],
     build: {
       rollupOptions: {
