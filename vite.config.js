@@ -1,7 +1,88 @@
-import { defineConfig } from 'vite'
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
+const ROOT = dirname(fileURLToPath(import.meta.url))
+const DEFAULT_SITE_URL = 'https://hydrangea-house.pages.dev'
+const GRADUATION_DIR = '/auburn-graduation-house'
+
+function resolveSiteUrl(mode) {
+  const env = loadEnv(mode, ROOT, '')
+  return (env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
+}
+
+function rewriteOrigin(source, origin) {
+  return source.replaceAll('__SITE_ORIGIN__', origin)
+}
+
+function walkFiles(dir) {
+  if (!existsSync(dir)) return []
+  const files = []
+  for (const name of readdirSync(dir)) {
+    const full = resolve(dir, name)
+    if (statSync(full).isDirectory()) files.push(...walkFiles(full))
+    else files.push(full)
+  }
+  return files
+}
+
+function prettyGraduationUrl() {
+  return (req, _res, next) => {
+    const [pathname, search = ''] = (req.url || '').split('?')
+    if (pathname === GRADUATION_DIR) {
+      req.url = `${GRADUATION_DIR}/${search ? `?${search}` : ''}`
+    }
+    next()
+  }
+}
+
+function sitemapXmlType(origin) {
+  const serveRewritten = (file, type) => (req, res, next) => {
+    const path = req.url?.split('?')[0]
+    if (path !== `/${file}`) return next()
+    const disk = resolve(ROOT, 'public', file)
+    if (!existsSync(disk)) return next()
+    res.setHeader('Content-Type', type)
+    res.end(rewriteOrigin(readFileSync(disk, 'utf8'), origin))
+  }
+
+  const apply = (server) => {
+    server.middlewares.use(prettyGraduationUrl())
+    server.middlewares.use(serveRewritten('sitemap.xml', 'application/xml; charset=utf-8'))
+    server.middlewares.use(serveRewritten('robots.txt', 'text/plain; charset=utf-8'))
+  }
+
+  return {
+    name: 'sitemap-xml-content-type',
+    configureServer: apply,
+    configurePreviewServer: apply,
+    transformIndexHtml(html) {
+      return rewriteOrigin(html, origin)
+    },
+    closeBundle() {
+      const rewriteNames = new Set(['index.html', 'sitemap.xml', 'robots.txt', 'llms.txt'])
+      for (const file of walkFiles(resolve(ROOT, 'dist'))) {
+        const base = file.split('/').pop()
+        if (!rewriteNames.has(base) && !file.endsWith('.html')) continue
+        writeFileSync(file, rewriteOrigin(readFileSync(file, 'utf8'), origin))
+      }
+    },
+  }
+}
+
+export default defineConfig(({ mode }) => {
+  const siteUrl = resolveSiteUrl(mode)
+  return {
+    plugins: [react(), sitemapXmlType(siteUrl)],
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolve(ROOT, 'index.html'),
+          graduation: resolve(ROOT, 'auburn-graduation-house/index.html'),
+        },
+      },
+    },
+  }
 })
