@@ -154,8 +154,8 @@ a {
 }
 
 .display-page {
-  font-size: clamp(2.5rem, 8vw, 5.6rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 5.4vw, 4.15rem);
+  line-height: 1.02;
 }
 
 .crumbs {

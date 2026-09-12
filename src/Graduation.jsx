@@ -51,14 +51,14 @@ function Hero() {
         <div className="hero-grid">
           <div>
             <h1 className="display display-page">
-              Auburn Graduation
+              Coming to Auburn for graduation?
               <br />
-              <span className="display-italic">House</span>
+              <span className="display-italic">Look no further, stay right here.</span>
             </h1>
             <p className="serif lede">
-              The Hydrangea House is a private five-bedroom home inside the Auburn University
-              Club — a Club Creek stay for families booking spring commencement or December
-              graduation on The Plains.
+              The Hydrangea House is the Auburn graduation house — a private five-bedroom Club
+              Creek home inside the Auburn University Club, a ten-minute drive from campus for
+              spring commencement or December graduation.
             </p>
             <div className="stats">
               <StatLine v="5" l="BEDROOMS" />
