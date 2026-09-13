@@ -328,7 +328,7 @@ function ClubEvents() {
 
 function Snapshot() {
   return (
-    <section id="house" className="panel panel-light">
+    <section id="house" className="panel">
       <div className="wrap">
         <p className="eyebrow">House snapshot</p>
         <h2>A luxury stay in AUC: 5BR / 4.5BA, sleeps 10.</h2>
