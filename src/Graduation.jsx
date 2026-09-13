@@ -1,10 +1,10 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
 import { GOLF_PATH } from './lib/routes.js';
-import { HERO_IMAGE_PATH, SITE_NAME } from './lib/site.js';
+import { HERO_IMAGE_PATH, HOUSE_AKA, SITE_NAME } from './lib/site.js';
 
 const GRAD_FAQS = [
   {
-    q: 'How many people can stay at The Hydrangea House for Auburn graduation weekend?',
+    q: 'How many people can stay at Club Creek for Auburn graduation weekend?',
     a: 'The house sleeps 10 across five bedrooms — one king bed and four queen beds — with 4.5 baths so parents, grandparents, and siblings are not doubling up.',
   },
   {
@@ -24,7 +24,7 @@ const GRAD_FAQS = [
     a: 'Well-behaved dogs are welcome on request with a $75 per pet, per day fee. No cats. The backyard is fully fenced, and all pet waste must be picked up.',
   },
   {
-    q: 'How do we book The Hydrangea House direct for graduation?',
+    q: 'How do we book Club Creek direct for graduation?',
     a: 'Text or email the hosts with your dates. Bookings are direct, with no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
   },
 ];
@@ -57,9 +57,9 @@ function Hero() {
               <span className="display-italic">Look no further, stay right here.</span>
             </h1>
             <p className="serif lede">
-              The Hydrangea House is the Auburn graduation house — a private five-bedroom Club
-              Creek home inside the Auburn University Club, a ten-minute drive from campus for
-              spring commencement or December graduation.
+              {SITE_NAME} is the Auburn graduation house — a private five-bedroom home inside
+              the Auburn University Club, a ten-minute drive from campus for spring
+              commencement or December graduation. {HOUSE_AKA}.
             </p>
             <div className="stats">
               <StatLine v="5" l="BEDROOMS" />
@@ -79,7 +79,7 @@ function Hero() {
           <div className="slot-frame">
             <img
               src={HERO_IMAGE_PATH}
-              alt="The Hydrangea House in Auburn, Alabama — a five-bedroom graduation weekend rental near Auburn University"
+              alt={`${SITE_NAME} in Auburn, Alabama — a five-bedroom graduation weekend rental near Auburn University`}
               fetchPriority="high"
             />
           </div>
@@ -94,18 +94,18 @@ function Why() {
     <section id="why" className="panel panel-light">
       <div className="wrap narrow prose">
         <p className="eyebrow">Why this house</p>
-        <h2>Why families book The Hydrangea House for graduation.</h2>
+        <h2>Why families book {SITE_NAME} for graduation.</h2>
         <p className="body">
           Auburn University graduation weekend is a reunion, not a hotel night. Parents fly in,
           grandparents want a quiet bedroom, siblings bring plus-ones, and everyone still needs
-          to be on campus in the morning. The Hydrangea House is built for that — one address,
-          five bedrooms, 4.5 baths, and a chef&apos;s kitchen so breakfast happens under one roof.
+          to be on campus in the morning. {SITE_NAME} is built for that — one address, five
+          bedrooms, 4.5 baths, and a chef&apos;s kitchen so breakfast happens under one roof.
         </p>
         <p className="body">
-          The house (Club Creek to friends and family) sits inside the Auburn University Club, a
-          private golf community in Auburn, Alabama. It is a ten-minute drive to campus,
-          Toomer&apos;s Corner, and Jordan-Hare Stadium — close enough for ceremony morning,
-          quiet enough that you are not parked in a downtown hotel.
+          The house ({HOUSE_AKA}) sits inside the Auburn University Club, a private golf
+          community in Auburn, Alabama. It is a ten-minute drive to campus, Toomer&apos;s
+          Corner, and Jordan-Hare Stadium — close enough for ceremony morning, quiet enough
+          that you are not parked in a downtown hotel.
         </p>
         <p className="body">
           Book direct with the hosts. Same house you would find on a listing site, without
@@ -230,10 +230,10 @@ function Neighborhood() {
         <p className="eyebrow">Neighborhood</p>
         <h2>Club Creek lodging inside the Auburn University Club.</h2>
         <p className="body">
-          The Hydrangea House is in Auburn, Alabama 36832, inside the Auburn University Club —
-          a private golf community. We do not publish a street number. Distances we do
-          publish: about ten minutes by car to Jordan-Hare Stadium, Toomer&apos;s Corner, and
-          Auburn University&apos;s campus.
+          {SITE_NAME} is in Auburn, Alabama 36832, inside the Auburn University Club — a
+          private golf community. We do not publish a street number. Distances we do publish:
+          about ten minutes by car to Jordan-Hare Stadium, Toomer&apos;s Corner, and Auburn
+          University&apos;s campus.
         </p>
         <p className="body">
           That campus drive is the one that matters on commencement morning. Neville Arena,
@@ -273,7 +273,7 @@ function Related() {
     <section className="panel panel-light">
       <div className="wrap narrow">
         <p className="eyebrow">Also on this site</p>
-        <h2>Keep exploring The Hydrangea House.</h2>
+        <h2>Keep exploring {SITE_NAME}.</h2>
         <div className="related">
           <a href="/">Home</a>
           <a href="/#stay">The house</a>
@@ -302,7 +302,7 @@ export default function Graduation() {
       <Faq />
       <Reserve
         title="Reserve your graduation weekend"
-        lede="Text or email the hosts with your spring commencement or December graduation dates. Same Hydrangea House, booked direct — no third-party service fees."
+        lede="Text or email the hosts with your spring commencement or December graduation dates. Same Club Creek house, booked direct — no third-party service fees."
       />
       <Related />
       <Footer page="graduation" />

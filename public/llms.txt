@@ -1,13 +1,17 @@
-# The Hydrangea House
+# Club Creek
 
 > A private five-bedroom retreat inside the Auburn University Club in Auburn, Alabama — booked direct, no service fees.
 
-The Hydrangea House (property nickname: Club Creek) is a creekside home ten minutes from Toomer's Corner and Jordan-Hare Stadium, available for game weekends, family stays, Camp War Eagle, Parents Weekend, Auburn University graduation weekends, golf weekends, and quiet weeks away.
+Club Creek (also known as Hydrangea House) is a creekside home ten minutes from Toomer's Corner and Jordan-Hare Stadium, available for game weekends, family stays, Camp War Eagle, Parents Weekend, Auburn University graduation weekends, golf weekends, and quiet weeks away.
 
 This site is a static Vite app on Cloudflare Pages. Public HTML documents are listed below.
 
-Production hostname: https://hydrangea-house-d7s.pages.dev
+Primary public brand: Club Creek
+House nickname / subtitle only: Hydrangea House
+
+Production hostname (until a custom clubcreekrental domain is attached): https://hydrangea-house-d7s.pages.dev
 Pages project name: hydrangea-house
+Intended custom domain: clubcreekrental.com (or similar) — set VITE_SITE_URL after that host is live on this same project.
 Do not confuse with https://hydrangea-house.pages.dev (unrelated Kentucky interior design studio).
 
 ## Contact

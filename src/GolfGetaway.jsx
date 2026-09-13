@@ -1,10 +1,10 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
 import { GRADUATION_PATH } from './lib/routes.js';
-import { HERO_IMAGE_PATH, SITE_NAME } from './lib/site.js';
+import { HERO_IMAGE_PATH, HOUSE_AKA, SITE_NAME } from './lib/site.js';
 
 const GOLF_FAQS = [
   {
-    q: 'Is The Hydrangea House in a golf community?',
+    q: 'Is Club Creek in a golf community?',
     a: 'Yes. The house sits inside the Auburn University Club, a private golf community in Auburn, Alabama 36832. We do not publish a street number.',
   },
   {
@@ -24,7 +24,7 @@ const GOLF_FAQS = [
     a: 'Well-behaved dogs are welcome on request with a $75 per pet, per day fee. No cats. The backyard is fully fenced, and all pet waste must be picked up.',
   },
   {
-    q: 'How do we book The Hydrangea House direct for a golf getaway?',
+    q: 'How do we book Club Creek direct for a golf getaway?',
     a: 'Text or email the hosts with your dates. Bookings are direct, with no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
   },
 ];
@@ -57,9 +57,9 @@ function Hero() {
               <span className="display-italic">One house for the whole group.</span>
             </h1>
             <p className="serif lede">
-              The Hydrangea House is a private five-bedroom Club Creek home inside the Auburn
-              University Club — a golf community in Auburn, Alabama — sleeping 10 with 4.5
-              baths. Book direct.
+              {SITE_NAME} is a private five-bedroom home inside the Auburn University Club — a
+              golf community in Auburn, Alabama — sleeping 10 with 4.5 baths. {HOUSE_AKA}. Book
+              direct.
             </p>
             <div className="stats">
               <StatLine v="5" l="BEDROOMS" />
@@ -79,7 +79,7 @@ function Hero() {
           <div className="slot-frame">
             <img
               src={HERO_IMAGE_PATH}
-              alt="The Hydrangea House in Auburn, Alabama — a five-bedroom golf-weekend rental inside the Auburn University Club"
+              alt={`${SITE_NAME} in Auburn, Alabama — a five-bedroom golf-weekend rental inside the Auburn University Club`}
               fetchPriority="high"
             />
           </div>
@@ -96,14 +96,14 @@ function Why() {
         <p className="eyebrow">Why this house</p>
         <h2>A golf-weekend house the whole group can share.</h2>
         <p className="body">
-          An Auburn golf weekend works better when the group is under one roof. The Hydrangea
-          House is five bedrooms (one king, four queens), 4.5 baths, and 3,600+ square feet —
-          enough that ten people are not splitting hotel rooms or doubling up.
+          An Auburn golf weekend works better when the group is under one roof. {SITE_NAME} is
+          five bedrooms (one king, four queens), 4.5 baths, and 3,600+ square feet — enough
+          that ten people are not splitting hotel rooms or doubling up.
         </p>
         <p className="body">
-          The house (Club Creek to friends and family) sits inside the Auburn University Club, a
-          private golf community. Distances we publish: about ten minutes by car to Jordan-Hare
-          Stadium, Toomer&apos;s Corner, and Auburn University&apos;s campus. We do not publish
+          The house ({HOUSE_AKA}) sits inside the Auburn University Club, a private golf
+          community. Distances we publish: about ten minutes by car to Jordan-Hare Stadium,
+          Toomer&apos;s Corner, and Auburn University&apos;s campus. We do not publish
           distances to other courses, green fees, or a walking time.
         </p>
         <p className="body">
@@ -188,10 +188,10 @@ function Neighborhood() {
         <p className="eyebrow">Neighborhood</p>
         <h2>Club Creek lodging inside the Auburn University Club.</h2>
         <p className="body">
-          The Hydrangea House is in Auburn, Alabama 36832, inside the Auburn University Club —
-          a private golf community. We do not publish a street number. Distances we do
-          publish: about ten minutes by car to Jordan-Hare Stadium, Toomer&apos;s Corner, and
-          Auburn University&apos;s campus.
+          {SITE_NAME} is in Auburn, Alabama 36832, inside the Auburn University Club — a
+          private golf community. We do not publish a street number. Distances we do publish:
+          about ten minutes by car to Jordan-Hare Stadium, Toomer&apos;s Corner, and Auburn
+          University&apos;s campus.
         </p>
         <p className="body">
           We do not list other course names, trail facilities, or drive times we have not
@@ -230,7 +230,7 @@ function Related() {
     <section className="panel">
       <div className="wrap narrow">
         <p className="eyebrow">Also on this site</p>
-        <h2>Keep exploring The Hydrangea House.</h2>
+        <h2>Keep exploring {SITE_NAME}.</h2>
         <div className="related">
           <a href="/">Home</a>
           <a href="/#stay">The house</a>
@@ -257,7 +257,7 @@ export default function GolfGetaway() {
       <Faq />
       <Reserve
         title="Reserve your golf weekend"
-        lede="Text or email the hosts with your dates. Same Hydrangea House, booked direct — no third-party service fees."
+        lede="Text or email the hosts with your dates. Same Club Creek house, booked direct — no third-party service fees."
       />
       <Related />
       <Footer page="golf" />
