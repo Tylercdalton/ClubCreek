@@ -1,15 +1,26 @@
 /**
  * Canonical origin for this Vite + Cloudflare Pages site.
- * Override at build time with VITE_SITE_URL (no trailing slash).
- * Pages project name is hydrangea-house. The public hostname is
- * https://hydrangea-house-d7s.pages.dev — hydrangea-house.pages.dev is a
- * different, unrelated site. Override with VITE_SITE_URL when a custom
- * domain is attached (no trailing slash).
+ *
+ * Default is Tyler’s Pages project host:
+ *   https://hydrangea-house-d7s.pages.dev
+ * Pages project name is `hydrangea-house`. That is not the public brand.
+ *
+ * Do not use https://hydrangea-house.pages.dev — unrelated Kentucky studio.
+ *
+ * When clubcreekrental.com (or a similar custom host) is attached to THIS
+ * project and verified to serve this Auburn STR HTML, set:
+ *   VITE_SITE_URL=https://clubcreekrental.com
+ * (no trailing slash) and rebuild. Until then, leave the d7s default.
  */
 export const SITE_URL = (
   import.meta.env.VITE_SITE_URL || 'https://hydrangea-house-d7s.pages.dev'
 ).replace(/\/$/, '');
-export const SITE_NAME = 'The Hydrangea House';
+
+/** Primary public brand. Matches clubcreekrental. */
+export const SITE_NAME = 'Club Creek';
+/** House nickname / subtitle only — never the lead brand. */
+export const HOUSE_NICKNAME = 'Hydrangea House';
+export const HOUSE_AKA = `also known as ${HOUSE_NICKNAME}`;
 
 export function absoluteUrl(pathOrUrl) {
   if (!pathOrUrl) return SITE_URL;

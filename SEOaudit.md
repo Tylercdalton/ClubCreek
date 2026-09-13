@@ -1,8 +1,21 @@
-# SEO audit — The Hydrangea House / Club Creek
+# SEO audit — Club Creek
 
-Audited 2026-09-12 against GitHub `main` (includes merged PR #2, SHA `16efe2663078817df78d206a920f490d42594da6`), open PR #3, and the live Cloudflare Pages project on Tyler’s account `e2b560bf932d2951103bd52d4788199b`.
+Audited 2026-09-12 against GitHub `main` (includes merged PR #2, SHA `16efe2663078817df78d206a920f490d42594da6`), open PR #3, and the live Cloudflare Pages project on Tyler’s account `e2b560bf932d2951103bd52d4788199b`. Brand lock updated 2026-09-13: Club Creek is the primary public brand.
 
 Encited is connected to `alabamapharmtech.com`, `dalton-insuranceagency.com`, and a pending `alliedhealthtraining.org` — **not** this rental. No Encited crawl, GSC, or keyword tools were run for this hostname.
+
+## Brand / URL lock
+
+| Item | Locked value |
+| --- | --- |
+| Public brand | **Club Creek** (titles, H1 where brand appears, nav/footer lockups, `og:site_name`, schema `name`) |
+| Nickname / subtitle | Hydrangea House — “also known as” only; schema `alternateName` |
+| Pages **project name** | `hydrangea-house` (do not rename) |
+| Production origin **now** | **`https://hydrangea-house-d7s.pages.dev`** |
+| Future custom domain | `clubcreekrental.com` (or similar) on **this** Pages project |
+| Env switch | `VITE_SITE_URL` — default d7s; flip only after the custom host serves this Auburn STR HTML |
+
+**Use d7s until a custom clubcreekrental domain is live.** Do not invent `hydrangea-house.pages.dev` as production. That host is an unrelated Kentucky studio.
 
 ## Production path (do not use Lovable)
 
@@ -33,7 +46,7 @@ Already true after PR #2 merged to `main` (production deploy `16efe26`):
 1. Pages project `hydrangea-house` is Git-connected to `Tylercdalton/ClubCreek`, production branch `main`.
 2. Build is `npm run build` → `dist`.
 3. Vite multi-page input includes `auburn-graduation-house/index.html`.
-4. Live path: `https://hydrangea-house-d7s.pages.dev/auburn-graduation-house/` → 200, title `Auburn Graduation House | Hydrangea House near Auburn University`, FAQPage in first HTML.
+4. Live path: `https://hydrangea-house-d7s.pages.dev/auburn-graduation-house/` → 200, unique graduation title + FAQPage in first HTML. Title now leads **Club Creek** (was Hydrangea House).
 5. `/auburn-graduation-house` (no slash) → 308 → `/auburn-graduation-house/`.
 6. `/graduation` and `/auburn-graduation` → 301 → the graduation document.
 7. Preview deploys send `x-robots-tag: noindex`. Production on `hydrangea-house-d7s.pages.dev` does **not**.
@@ -65,9 +78,9 @@ Home still hydrates the long page in JS. That is acceptable for Googlebot; it is
 
 | Page | Title | Notes |
 | --- | --- | --- |
-| `/` | Luxury Auburn Gameday House, Sleeps 10 \| Hydrangea House | OG title says “Sleeps 10+”; FAQ says sleeps 10. P1 consistency. |
-| `/auburn-graduation-house/` | Auburn Graduation House \| Hydrangea House near Auburn University | Unique. H1 is Tyler’s line; title stays graduation/Hydrangea House. |
-| `/auburn-golf-getaway/` | Auburn Golf Getaway \| Hydrangea House at Auburn University Club | New. Facts only (AUC golf community; no invented RTJ distances). |
+| `/` | Luxury Auburn Gameday House, Sleeps 10 \| Club Creek | Brand is Club Creek. OG title aligned to sleeps 10. |
+| `/auburn-graduation-house/` | Auburn Graduation House \| Club Creek near Auburn University | Unique. H1 is Tyler’s line; title leads Club Creek. |
+| `/auburn-golf-getaway/` | Auburn Golf Getaway \| Club Creek at Auburn University Club | Facts only (AUC golf community; no invented RTJ distances). Brand is Club Creek. |
 
 **P0 (fixed here):** live canonical/OG/sitemap/robots used `https://hydrangea-house.pages.dev`. Social image `https://hydrangea-house.pages.dev/images/home-hero.webp` 200s as **HTML** on the Kentucky host (no image).
 
@@ -105,10 +118,11 @@ Graduation/golf extend occupancy (10) and `amenityFeature` from on-page lists. H
 
 ## H1s / internal links / NAP
 
-- Home H1: “The Hydrangea House”.
+- Home H1: “Club Creek” (subtitle: also known as Hydrangea House).
 - Graduation H1: “Coming to Auburn for graduation? Look no further, stay right here.”
 - Golf H1: “An Auburn golf getaway. One house for the whole group.”
 - One H1 per painted page after hydrate.
+- Nav/footer lockup: Club Creek + “also known as Hydrangea House”.
 
 Internal links: home ↔ graduation ↔ golf; hash links to `#stay` `#gallery` `#auburn` `#concierge` `#book`. Footer and nav include both landing pages.
 
@@ -143,8 +157,9 @@ Do not add a sitewide `noindex` in `public/_headers`.
 ## Custom domain readiness
 
 - Only domain on the Pages project today: `hydrangea-house-d7s.pages.dev`.
-- To attach a custom domain: Pages → Custom domains → add host → DNS CNAME to `hydrangea-house-d7s.pages.dev` (or Cloudflare proxy). Then set production env `VITE_SITE_URL=https://<that-host>` (no trailing slash) and rebuild so canonicals match.
-- Verify the custom host serves **this** repo’s Auburn STR HTML before flipping `VITE_SITE_URL`.
+- Intended custom domain: `clubcreekrental.com` (or similar) on **this** `hydrangea-house` project — not a new Pages project, and not `hydrangea-house.pages.dev`.
+- To attach: Pages → Custom domains → add host → DNS CNAME to `hydrangea-house-d7s.pages.dev` (or Cloudflare proxy). Then set production env `VITE_SITE_URL=https://clubcreekrental.com` (no trailing slash) and rebuild so canonicals match.
+- Verify the custom host serves **this** repo’s Auburn STR HTML before flipping `VITE_SITE_URL`. Until then, keep d7s.
 
 ## GSC readiness
 
@@ -189,8 +204,8 @@ Facts used only: 5BR / 4.5BA, sleeps 10 (1 king / 4 queens), 3,600+ sq ft, Aubur
 
 1. Submit the d7s sitemap in Google Search Console (and Encited when the domain is added).
 2. Noindex or 301 `clubcreekrental.lovable.app` when you control it.
-3. Align “sleeps 10” vs “10+” on the homepage title/OG/stats.
-4. Attach a custom domain you own; set `VITE_SITE_URL`; rebuild.
+3. Align remaining “sleeps 10+” stat copy with FAQ “sleeps 10” if desired.
+4. Attach `clubcreekrental.com` (or similar) to **this** project; set `VITE_SITE_URL`; rebuild. Until then, keep d7s.
 5. Self-host or subset fonts if LCP on mobile is weak after GSC field data exists.
 
 ### P2 — later
@@ -204,7 +219,7 @@ Facts used only: 5BR / 4.5BA, sleeps 10 (1 king / 4 queens), 3,600+ sq ft, Aubur
 
 ```bash
 # Must be the Auburn STR site, not Kentucky design
-curl -s https://hydrangea-house-d7s.pages.dev/ | grep -E 'canonical|The Hydrangea House|hydrangea-house.pages.dev'
+curl -s https://hydrangea-house-d7s.pages.dev/ | grep -E 'canonical|Club Creek|og:site_name|hydrangea-house.pages.dev'
 curl -s https://hydrangea-house-d7s.pages.dev/auburn-graduation-house/ | grep -E 'Coming to Auburn for graduation|Look no further, stay right here|FAQPage|canonical'
 curl -s https://hydrangea-house-d7s.pages.dev/auburn-golf-getaway/ | grep -E 'An Auburn golf getaway|FAQPage|canonical'
 curl -sI https://hydrangea-house-d7s.pages.dev/auburn-graduation-house | grep -i location

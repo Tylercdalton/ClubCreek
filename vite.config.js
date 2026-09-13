@@ -5,7 +5,11 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
 const ROOT = dirname(fileURLToPath(import.meta.url))
-/** Public hostname of Pages project `hydrangea-house`. Not hydrangea-house.pages.dev. */
+/**
+ * Default public origin until a custom clubcreekrental domain is attached
+ * to Pages project `hydrangea-house` and VITE_SITE_URL is set.
+ * Not hydrangea-house.pages.dev (unrelated Kentucky studio).
+ */
 const DEFAULT_SITE_URL = 'https://hydrangea-house-d7s.pages.dev'
 const LANDING_DIRS = ['/auburn-graduation-house', '/auburn-golf-getaway']
 

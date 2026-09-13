@@ -1,34 +1,35 @@
-# The Hydrangea House (Club Creek)
+# Club Creek
 
-Guest-facing brand is **The Hydrangea House**. Club Creek remains the property nickname.
+Guest-facing brand is **Club Creek**. **Hydrangea House** is a house nickname / subtitle only — not the lead brand.
 
 **Source of truth:** this GitHub repo (`Tylercdalton/ClubCreek`).  
 **Production ship path:** GitHub `main` → Cloudflare Pages.  
 **Lovable is not production.** Old preview: `https://clubcreekrental.lovable.app` — do not publish from Lovable.
 
-## Correct Cloudflare Pages target
+## Brand / URL lock
 
-Verified against Tyler’s Cloudflare account (`e2b560bf932d2951103bd52d4788199b`):
-
-| Item | Value |
+| Item | Locked value |
 | --- | --- |
-| Pages **project name** | `hydrangea-house` |
-| Production hostname | **`https://hydrangea-house-d7s.pages.dev`** |
-| Preview host pattern | `https://<branch-alias>.hydrangea-house-d7s.pages.dev` |
-| Example graduation preview | `https://cursor-auburn-graduation-hou.hydrangea-house-d7s.pages.dev/auburn-graduation-house/` |
-| Production branch | `main` |
-| Repo | `Tylercdalton/ClubCreek` |
-| Custom domain | none yet |
+| Public brand | **Club Creek** |
+| Nickname / subtitle | Hydrangea House (“also known as”) |
+| Pages **project name** | `hydrangea-house` (Cloudflare project id — do not rename) |
+| Production origin **now** | **`https://hydrangea-house-d7s.pages.dev`** |
+| Future custom domain | `clubcreekrental.com` (or similar) on **this same** Pages project |
+| Env switch | `VITE_SITE_URL` — see `.env.example` |
 
-**Do not use `https://hydrangea-house.pages.dev`.** That hostname is a different, unrelated Kentucky interior design studio (“Hydrangea House Co.” / Ashley Schaaf). Cloudflare assigned this project the `-d7s` suffix because the short `pages.dev` name was already taken. Canonicals, OG, sitemap, robots, and CTAs must use `hydrangea-house-d7s.pages.dev` until a custom domain is attached and `VITE_SITE_URL` is set to that domain.
+**Use d7s until a custom clubcreekrental domain is live.** Canonicals, OG, sitemap, robots, and CTAs must stay on `https://hydrangea-house-d7s.pages.dev` until that host is attached to the `hydrangea-house` project **and** verified to serve this Auburn STR HTML. Then set `VITE_SITE_URL=https://clubcreekrental.com` (no trailing slash) and rebuild.
 
-`wrangler.jsonc` `name` and `npm run pages:deploy -- --project-name hydrangea-house` refer to the **project name**, not the public hostname.
+**Do not use `https://hydrangea-house.pages.dev`.** That hostname is a different, unrelated Kentucky interior design studio (“Hydrangea House Co.” / Ashley Schaaf). Cloudflare assigned this project the `-d7s` suffix because the short `pages.dev` name was already taken.
 
-## Live URLs (after this branch deploys to `main`)
+`wrangler.jsonc` `name` and `npm run pages:deploy -- --project-name hydrangea-house` refer to the **project name**, not the public brand or hostname.
+
+## Live URLs (d7s until custom domain)
 
 - Home: `https://hydrangea-house-d7s.pages.dev/`
 - Graduation: `https://hydrangea-house-d7s.pages.dev/auburn-graduation-house/`
 - Golf getaway: `https://hydrangea-house-d7s.pages.dev/auburn-golf-getaway/`
+
+Preview host pattern: `https://<branch-alias>.hydrangea-house-d7s.pages.dev`
 
 ## Reality check (SPA vs static HTML documents)
 
@@ -57,7 +58,8 @@ This repo is a **static Vite + React multi-page app**, not TanStack Start / SSR.
 | Build output directory | `dist` |
 | Root directory | `/` (leave empty) |
 | Node version | `22` (see `.nvmrc`) |
-| Env (optional) | `VITE_SITE_URL=https://your-custom-domain` — **only** after a custom domain on **this** project is live and serving Auburn STR content |
+| Env (now) | unset, or `VITE_SITE_URL=https://hydrangea-house-d7s.pages.dev` |
+| Env (later) | `VITE_SITE_URL=https://clubcreekrental.com` — **only** after that custom domain on **this** project is live and serving Auburn STR content |
 
 `public/_headers` sets `Content-Type: application/xml` on `/sitemap.xml`.  
 `public/404.html` is the not-found document so unknown paths do not serve the homepage.
@@ -89,9 +91,9 @@ npm run preview
 ```
 
 ```bash
-curl -s http://localhost:4173/ | grep -E 'canonical|Coming to Auburn|An Auburn golf|FAQPage|hydrangea-house-d7s'
-curl -s http://localhost:4173/auburn-graduation-house/ | grep -E 'canonical|Coming to Auburn for graduation|FAQPage|hydrangea-house.pages.dev'
-curl -s http://localhost:4173/auburn-golf-getaway/ | grep -E 'canonical|An Auburn golf getaway|FAQPage'
+curl -s http://localhost:4173/ | grep -E 'canonical|Club Creek|og:site_name|Coming to Auburn|An Auburn golf|FAQPage|hydrangea-house-d7s'
+curl -s http://localhost:4173/auburn-graduation-house/ | grep -E 'canonical|Coming to Auburn for graduation|Club Creek|FAQPage|hydrangea-house.pages.dev'
+curl -s http://localhost:4173/auburn-golf-getaway/ | grep -E 'canonical|An Auburn golf getaway|Club Creek|FAQPage'
 curl -sI http://localhost:4173/sitemap.xml | grep -i content-type
 ```
 

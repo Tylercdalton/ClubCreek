@@ -2,9 +2,29 @@ import {
   HOST_EMAIL,
   HOST_PHONE_DISPLAY,
   HOST_PHONE_E164,
+  HOUSE_AKA,
   SITE_NAME,
 } from '../lib/site.js';
 import { GOLF_PATH, GRADUATION_PATH } from '../lib/routes.js';
+
+export function BrandLockup({ href }) {
+  const label = `${SITE_NAME} home, ${HOUSE_AKA}`;
+  if (href) {
+    return (
+      <a href={href} className="brand-lockup" aria-label={label}>
+        <span className="word">{SITE_NAME}</span>
+        <span className="aka">{HOUSE_AKA}</span>
+      </a>
+    );
+  }
+
+  return (
+    <p className="brand-lockup">
+      <span className="word">{SITE_NAME}</span>
+      <span className="aka">{HOUSE_AKA}</span>
+    </p>
+  );
+}
 
 function hashHref(page, id) {
   return page === 'home' ? `#${id}` : `/#${id}`;
@@ -25,9 +45,7 @@ export function Nav({ page = 'home' }) {
   return (
     <header className="nav">
       <div className="wrap nav-inner">
-        <a href={homeHref} className="word" aria-label={`${SITE_NAME} home`}>
-          {SITE_NAME}
-        </a>
+        <BrandLockup href={homeHref} />
         <nav className="nav-mobile" aria-label="Quick">
           <a
             className={`link${page === 'graduation' ? ' is-current' : ''}`}
@@ -80,7 +98,7 @@ export function Footer({ page = 'home' }) {
     <footer className="site-footer">
       <div className="wrap footer-grid">
         <div>
-          <p className="word">{SITE_NAME}</p>
+          <BrandLockup />
           <p className="body">
             A serene retreat for game days, gatherings, graduation weekends &amp; quiet
             weeks in Auburn, Alabama.
