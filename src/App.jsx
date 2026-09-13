@@ -1,5 +1,5 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
-import { GRADUATION_PATH } from './lib/routes.js';
+import { GOLF_PATH, GRADUATION_PATH } from './lib/routes.js';
 import { HERO_IMAGE_PATH } from './lib/site.js';
 
 function Hero() {
@@ -33,11 +33,16 @@ function Hero() {
               </a>
             </div>
             <p className="body hero-note">
-              Here for <a href={GRADUATION_PATH}>Auburn graduation weekend</a>?
+              Here for <a href={GRADUATION_PATH}>Auburn graduation weekend</a> or an{' '}
+              <a href={GOLF_PATH}>Auburn golf getaway</a>?
             </p>
           </div>
           <div className="slot-frame">
-            <img src={HERO_IMAGE_PATH} alt="Front exterior of The Hydrangea House at sunset in Auburn, Alabama" />
+            <img
+              src={HERO_IMAGE_PATH}
+              alt="Front exterior of The Hydrangea House at sunset in Auburn, Alabama"
+              fetchPriority="high"
+            />
           </div>
         </div>
       </div>
@@ -110,9 +115,9 @@ function Auburn() {
         <p className="body">
           Distances from The Hydrangea House: about ten minutes to Jordan-Hare, Toomer&apos;s
           Corner, and campus. The house sits inside the Auburn University Club, a private golf
-          community. Golf and campus notes live in this{' '}
-          <a href="#auburn">Auburn section</a>; <a href="#book">ask the hosts</a> when you
-          book.
+          community. Golf-weekend details live on the{' '}
+          <a href={GOLF_PATH}>Auburn golf getaway</a> page; <a href="#book">ask the hosts</a>{' '}
+          when you book.
         </p>
         <p className="body">
           Planning commencement instead of a home game? The{' '}

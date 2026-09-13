@@ -1,10 +1,13 @@
 /**
  * Canonical origin for this Vite + Cloudflare Pages site.
  * Override at build time with VITE_SITE_URL (no trailing slash).
- * Suggested Pages project: hydrangea-house → https://hydrangea-house.pages.dev
+ * Pages project name is hydrangea-house. The public hostname is
+ * https://hydrangea-house-d7s.pages.dev — hydrangea-house.pages.dev is a
+ * different, unrelated site. Override with VITE_SITE_URL when a custom
+ * domain is attached (no trailing slash).
  */
 export const SITE_URL = (
-  import.meta.env.VITE_SITE_URL || 'https://hydrangea-house.pages.dev'
+  import.meta.env.VITE_SITE_URL || 'https://hydrangea-house-d7s.pages.dev'
 ).replace(/\/$/, '');
 export const SITE_NAME = 'The Hydrangea House';
 

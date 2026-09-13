@@ -5,8 +5,9 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
 const ROOT = dirname(fileURLToPath(import.meta.url))
-const DEFAULT_SITE_URL = 'https://hydrangea-house.pages.dev'
-const GRADUATION_DIR = '/auburn-graduation-house'
+/** Public hostname of Pages project `hydrangea-house`. Not hydrangea-house.pages.dev. */
+const DEFAULT_SITE_URL = 'https://hydrangea-house-d7s.pages.dev'
+const LANDING_DIRS = ['/auburn-graduation-house', '/auburn-golf-getaway']
 
 function resolveSiteUrl(mode) {
   const env = loadEnv(mode, ROOT, '')
@@ -28,11 +29,11 @@ function walkFiles(dir) {
   return files
 }
 
-function prettyGraduationUrl() {
+function prettyLandingUrls() {
   return (req, _res, next) => {
     const [pathname, search = ''] = (req.url || '').split('?')
-    if (pathname === GRADUATION_DIR) {
-      req.url = `${GRADUATION_DIR}/${search ? `?${search}` : ''}`
+    if (LANDING_DIRS.includes(pathname)) {
+      req.url = `${pathname}/${search ? `?${search}` : ''}`
     }
     next()
   }
@@ -49,7 +50,7 @@ function sitemapXmlType(origin) {
   }
 
   const apply = (server) => {
-    server.middlewares.use(prettyGraduationUrl())
+    server.middlewares.use(prettyLandingUrls())
     server.middlewares.use(serveRewritten('sitemap.xml', 'application/xml; charset=utf-8'))
     server.middlewares.use(serveRewritten('robots.txt', 'text/plain; charset=utf-8'))
   }
@@ -62,7 +63,7 @@ function sitemapXmlType(origin) {
       return rewriteOrigin(html, origin)
     },
     closeBundle() {
-      const rewriteNames = new Set(['index.html', 'sitemap.xml', 'robots.txt', 'llms.txt'])
+      const rewriteNames = new Set(['index.html', 'sitemap.xml', 'robots.txt', 'llms.txt', '404.html'])
       for (const file of walkFiles(resolve(ROOT, 'dist'))) {
         const base = file.split('/').pop()
         if (!rewriteNames.has(base) && !file.endsWith('.html')) continue
@@ -75,12 +76,14 @@ function sitemapXmlType(origin) {
 export default defineConfig(({ mode }) => {
   const siteUrl = resolveSiteUrl(mode)
   return {
+    appType: 'mpa',
     plugins: [react(), sitemapXmlType(siteUrl)],
     build: {
       rollupOptions: {
         input: {
           main: resolve(ROOT, 'index.html'),
           graduation: resolve(ROOT, 'auburn-graduation-house/index.html'),
+          golf: resolve(ROOT, 'auburn-golf-getaway/index.html'),
         },
       },
     },

@@ -4,7 +4,7 @@ import {
   HOST_PHONE_E164,
   SITE_NAME,
 } from '../lib/site.js';
-import { GRADUATION_PATH } from '../lib/routes.js';
+import { GOLF_PATH, GRADUATION_PATH } from '../lib/routes.js';
 
 function hashHref(page, id) {
   return page === 'home' ? `#${id}` : `/#${id}`;
@@ -35,6 +35,9 @@ export function Nav({ page = 'home' }) {
           >
             GRADUATION
           </a>
+          <a className={`link${page === 'golf' ? ' is-current' : ''}`} href={GOLF_PATH}>
+            GOLF
+          </a>
         </nav>
         <nav className="nav-links" aria-label="Primary">
           <a className="link" href={hashHref(page, 'stay')}>
@@ -49,6 +52,13 @@ export function Nav({ page = 'home' }) {
             aria-current={page === 'graduation' ? 'page' : undefined}
           >
             GRADUATION
+          </a>
+          <a
+            className={`link${page === 'golf' ? ' is-current' : ''}`}
+            href={GOLF_PATH}
+            aria-current={page === 'golf' ? 'page' : undefined}
+          >
+            GOLF
           </a>
           <a className="link" href={hashHref(page, 'auburn')}>
             AUBURN
@@ -89,7 +99,10 @@ export function Footer({ page = 'home' }) {
               <a href={GRADUATION_PATH}>Auburn graduation house</a>
             </li>
             <li>
-              <a href={hashHref(page, 'auburn')}>Auburn &amp; golf</a>
+              <a href={GOLF_PATH}>Auburn golf getaway</a>
+            </li>
+            <li>
+              <a href={hashHref(page, 'auburn')}>Auburn &amp; campus</a>
             </li>
             <li>
               <a href={hashHref(page, 'gallery')}>Gallery</a>
