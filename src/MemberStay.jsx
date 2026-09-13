@@ -5,6 +5,17 @@ import { HERO_IMAGE_PATH, HOUSE_AKA, SITE_NAME } from './lib/site.js';
 /** Official AU Club member artwork can replace this file. Not an athletics logo. */
 const MEMBER_LOGO_PATH = '/auc-member-logo.svg';
 
+/**
+ * Auburn University Club events live on the club’s Wix site.
+ * Last checked 2026-09-13: no public ICS, no embeddable calendar, no events API.
+ * /calendar 301s to /memberevents (SMS QR only). /_api/wix-events/v1/events → 404.
+ * https://www.augolfclub.com/category/all-products is a store/event-registration
+ * archive (past Bunco, Fall Festival, tree lighting, dances) — not a live feed.
+ * Do not scrape it at build or runtime. Do not invent upcoming dates.
+ */
+const AUC_EVENTS_LIST_URL = 'https://www.augolfclub.com/category/all-products';
+const AUC_EVENTS_CHECKED = '13 September 2026';
+
 const MEMBER_FAQS = [
   {
     q: 'Can Auburn University Club national members stay at Club Creek year-round?',
@@ -37,6 +48,10 @@ const MEMBER_FAQS = [
   {
     q: 'How do we book Club Creek direct for an AU Club member stay?',
     a: 'Use the Book direct section on this page to request dates. Bookings are direct, with no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
+  },
+  {
+    q: 'Where do we see upcoming Auburn University Club member events?',
+    a: 'Event dates and registration are managed by Auburn University Club, not by Club Creek. Open the club’s public Upcoming Events list on augolfclub.com. We do not publish a synced calendar — the club does not offer a public ICS or embed.',
   },
 ];
 
@@ -168,7 +183,8 @@ function YearRound() {
             <p className="body">
               Member-guest weekends, holiday dinners, and Saturday nights at the clubhouse are
               the nights national members already drive in for. Sleep around the corner instead
-              of booking a hotel and driving back out of the community.
+              of booking a hotel and driving back out of the community. Current dates live on
+              the club&apos;s <a href="#events">Upcoming AU Club member activities</a> list.
             </p>
           </article>
           <article className="card">
@@ -269,6 +285,47 @@ function WhenToBook() {
   );
 }
 
+function ClubEvents() {
+  return (
+    <section id="events" className="panel panel-light">
+      <div className="wrap narrow prose">
+        <p className="eyebrow">Club calendar</p>
+        <h2>Upcoming AU Club member activities.</h2>
+        <p className="body">
+          National members already come back for dinners, festivals, and family nights at the
+          clubhouse. Those dates are set by Auburn University Club — not by {SITE_NAME}. We are
+          not an official partner, and we do not invent a calendar feed.
+        </p>
+        <p className="body">
+          The durable way to see what is next is the club&apos;s own Upcoming Events list
+          (Wix event-registration pages). There is no public ICS or embed to sync. Last
+          checked {AUC_EVENTS_CHECKED}: the listing is a live store/archive, so we link out
+          instead of copying dates that go stale.
+        </p>
+        <div className="cta-row">
+          <a
+            className="btn btn-solid"
+            href={AUC_EVENTS_LIST_URL}
+            rel="noopener noreferrer"
+          >
+            AUC upcoming events
+          </a>
+          <a className="btn" href="#book">
+            Book a stay around an event
+          </a>
+        </div>
+        <p className="fine events-source">
+          Source: Auburn University Club ·{' '}
+          <a href={AUC_EVENTS_LIST_URL} rel="noopener noreferrer">
+            augolfclub.com/category/all-products
+          </a>
+          . Checked {AUC_EVENTS_CHECKED}.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Snapshot() {
   return (
     <section id="house" className="panel panel-light">
@@ -351,6 +408,7 @@ export default function MemberStay() {
       <YearRound />
       <MultiStay />
       <WhenToBook />
+      <ClubEvents />
       <Snapshot />
       <Faq />
       <Reserve

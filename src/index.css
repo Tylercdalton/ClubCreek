@@ -200,6 +200,19 @@ a {
   margin: 28px 0 20px;
 }
 
+.events-source {
+  margin-top: 24px;
+  color: var(--ink-soft);
+  opacity: 1;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 13px;
+}
+
+.events-source a {
+  text-underline-offset: 3px;
+}
+
 .crumbs {
   display: flex;
   flex-wrap: wrap;
