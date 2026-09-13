@@ -1,5 +1,5 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
-import { GRADUATION_PATH } from './lib/routes.js';
+import { GRADUATION_PATH, MEMBER_PATH } from './lib/routes.js';
 import { HERO_IMAGE_PATH, HOUSE_AKA, SITE_NAME } from './lib/site.js';
 
 const GOLF_FAQS = [
@@ -201,7 +201,9 @@ function Neighborhood() {
         <p className="body">
           More on the setting lives on the{' '}
           <a href="/#auburn">Auburn section of the homepage</a>. Families here for commencement
-          should use the <a href={GRADUATION_PATH}>Auburn graduation house</a> page.
+          should use the <a href={GRADUATION_PATH}>Auburn graduation house</a> page. Auburn
+          University Club national members staying year-round should use the{' '}
+          <a href={MEMBER_PATH}>AU Club member stay</a> page.
         </p>
       </div>
     </section>
@@ -237,6 +239,7 @@ function Related() {
           <a href="/#gallery">Gallery</a>
           <a href="/#auburn">Auburn &amp; campus</a>
           <a href={GRADUATION_PATH}>Graduation house</a>
+          <a href={MEMBER_PATH}>AU Club member stay</a>
           <a href="#book">Book direct</a>
         </div>
       </div>
@@ -257,7 +260,8 @@ export default function GolfGetaway() {
       <Faq />
       <Reserve
         title="Reserve your golf weekend"
-        lede="Text or email the hosts with your dates. Same Club Creek house, booked direct — no third-party service fees."
+        lede="Same Club Creek house, booked direct — no third-party service fees. Use this page to request your golf-weekend dates."
+        cta="Book the golf weekend"
       />
       <Related />
       <Footer page="golf" />

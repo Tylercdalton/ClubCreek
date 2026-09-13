@@ -1,5 +1,5 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
-import { GOLF_PATH } from './lib/routes.js';
+import { GOLF_PATH, MEMBER_PATH } from './lib/routes.js';
 import { HERO_IMAGE_PATH, HOUSE_AKA, SITE_NAME } from './lib/site.js';
 
 const GRAD_FAQS = [
@@ -280,6 +280,7 @@ function Related() {
           <a href="/#gallery">Gallery</a>
           <a href="/#auburn">Auburn &amp; campus</a>
           <a href={GOLF_PATH}>Golf getaway</a>
+          <a href={MEMBER_PATH}>AU Club member stay</a>
           <a href="/#concierge">Concierge</a>
           <a href="#book">Book direct</a>
         </div>
@@ -302,7 +303,8 @@ export default function Graduation() {
       <Faq />
       <Reserve
         title="Reserve your graduation weekend"
-        lede="Text or email the hosts with your spring commencement or December graduation dates. Same Club Creek house, booked direct — no third-party service fees."
+        lede="Same Club Creek house, booked direct — no third-party service fees. Use this page to request spring commencement or December graduation dates."
+        cta="Book graduation weekend"
       />
       <Related />
       <Footer page="graduation" />

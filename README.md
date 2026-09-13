@@ -28,6 +28,7 @@ Guest-facing brand is **Club Creek**. **Hydrangea House** is a house nickname / 
 - Home: `https://hydrangea-house-d7s.pages.dev/`
 - Graduation: `https://hydrangea-house-d7s.pages.dev/auburn-graduation-house/`
 - Golf getaway: `https://hydrangea-house-d7s.pages.dev/auburn-golf-getaway/`
+- AU Club member stay: `https://hydrangea-house-d7s.pages.dev/auburn-university-club-member-stay/`
 
 Preview host pattern: `https://<branch-alias>.hydrangea-house-d7s.pages.dev`
 
@@ -40,8 +41,8 @@ This repo is a **static Vite + React multi-page app**, not TanStack Start / SSR.
 | Build | `npm run build` |
 | Output | `dist/` |
 | Server | None. No Pages Functions, no Worker SSR. |
-| Routes | `/` (`index.html`), `/auburn-graduation-house/` (`auburn-graduation-house/index.html`), `/auburn-golf-getaway/` (`auburn-golf-getaway/index.html`). Home sections: `#stay` `#gallery` `#auburn` `#concierge` `#book`. |
-| Sitemap | those three URLs only. `/stay` `/gallery` `/book` `/journal` **do not exist** and must 404 — do not add `/* → /index.html`. |
+| Routes | `/` (`index.html`), `/auburn-graduation-house/` (`auburn-graduation-house/index.html`), `/auburn-golf-getaway/` (`auburn-golf-getaway/index.html`), `/auburn-university-club-member-stay/` (`auburn-university-club-member-stay/index.html`). Home sections: `#stay` `#gallery` `#auburn` `#concierge` `#book`. |
+| Sitemap | those four URLs only. `/stay` `/gallery` `/book` `/journal` **do not exist** and must 404 — do not add `/* → /index.html`. |
 | SEO HTML | Titles, canonical, OG, FAQPage, Review, H1, and crawlable `tel:`/`mailto:` ship in each HTML document. React hides `#seo-shell` after hydrate so the visible page is not double-H1. |
 | Booking | No Hospitable widget. Guests text/email the hosts. |
 | Photos | Hero is `public/images/home-hero.webp` (same-origin). |
@@ -94,6 +95,7 @@ npm run preview
 curl -s http://localhost:4173/ | grep -E 'canonical|Club Creek|og:site_name|Coming to Auburn|An Auburn golf|FAQPage|hydrangea-house-d7s'
 curl -s http://localhost:4173/auburn-graduation-house/ | grep -E 'canonical|Coming to Auburn for graduation|Club Creek|FAQPage|hydrangea-house.pages.dev'
 curl -s http://localhost:4173/auburn-golf-getaway/ | grep -E 'canonical|An Auburn golf getaway|Club Creek|FAQPage'
+curl -s http://localhost:4173/auburn-university-club-member-stay/ | grep -E 'canonical|An Auburn University Club member stay|Club Creek|FAQPage|797-1012|tdalton508'
 curl -sI http://localhost:4173/sitemap.xml | grep -i content-type
 ```
 
