@@ -28,11 +28,7 @@ export function absoluteUrl(pathOrUrl) {
   return `${SITE_URL}${pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`}`;
 }
 
-/** From the former production ContactReveal values. Do not invent replacements. */
-export const HOST_PHONE_DIGITS = '3347971012';
-export const HOST_PHONE_E164 = '+13347971012';
-export const HOST_PHONE_DISPLAY = '(334) 797-1012';
-export const HOST_EMAIL = 'tdalton508@gmail.com';
+/** Personal phone and Gmail are not published on this site. Do not add them. */
 
 /** Already used on the former /stay schema. Do not invent a street number. */
 export const HOST_POSTAL_CODE = '36832';

@@ -8,11 +8,7 @@ export function absoluteUrl(pathOrUrl: string): string {
   return `${SITE_URL}${pathOrUrl.startsWith("/") ? pathOrUrl : `/${pathOrUrl}`}`;
 }
 
-/** Host contact from ContactReveal.tsx (ENC_PHONE / ENC_EMAIL). Do not invent replacements. */
-export const HOST_PHONE_DIGITS = "3347971012";
-export const HOST_PHONE_E164 = "+13347971012";
-export const HOST_PHONE_DISPLAY = "(334) 797-1012";
-export const HOST_EMAIL = "tdalton508@gmail.com";
+/** Personal phone and Gmail are not published. Do not add host tel/mailto. */
 
 /** Already present on the /stay LodgingBusiness schema. No street number exists in-repo. */
 export const HOST_POSTAL_CODE = "36832";

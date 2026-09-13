@@ -14,10 +14,10 @@ Pages project name: hydrangea-house
 Intended custom domain: clubcreekrental.com (or similar) — set VITE_SITE_URL after that host is live on this same project.
 Do not confuse with https://hydrangea-house.pages.dev (unrelated Kentucky interior design studio).
 
-## Contact
+## Booking
 
-- Phone: (334) 797-1012
-- Email: tdalton508@gmail.com
+Book direct from this site. Personal phone and email are not published.
+
 - Location: Auburn, Alabama 36832 (Auburn University Club community; street number not published)
 
 ## Pages
@@ -32,4 +32,4 @@ Do not confuse with https://hydrangea-house.pages.dev (unrelated Kentucky interi
 - [Gallery](/#gallery): Photographs.
 - [Auburn](/#auburn): Distances to Jordan-Hare, campus, and the golf community.
 - [Concierge](/#concierge): Golf cart, provisioning, breakfast kits.
-- [Book](/#book): Text or email the hosts to check dates.
+- [Book](/#book): Book direct to check dates.

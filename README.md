@@ -42,8 +42,8 @@ This repo is a **static Vite + React multi-page app**, not TanStack Start / SSR.
 | Server | None. No Pages Functions, no Worker SSR. |
 | Routes | `/` (`index.html`), `/auburn-graduation-house/` (`auburn-graduation-house/index.html`), `/auburn-golf-getaway/` (`auburn-golf-getaway/index.html`). Home sections: `#stay` `#gallery` `#auburn` `#concierge` `#book`. |
 | Sitemap | those three URLs only. `/stay` `/gallery` `/book` `/journal` **do not exist** and must 404 — do not add `/* → /index.html`. |
-| SEO HTML | Titles, canonical, OG, FAQPage, Review, H1, and crawlable `tel:`/`mailto:` ship in each HTML document. React hides `#seo-shell` after hydrate so the visible page is not double-H1. |
-| Booking | No Hospitable widget. Guests text/email the hosts. |
+| SEO HTML | Titles, canonical, OG, FAQPage, Review, and H1 ship in each HTML document. React hides `#seo-shell` after hydrate so the visible page is not double-H1. Do not add crawlable `tel:`/`mailto:` or personal host contact. |
+| Booking | No Hospitable widget in this repo. Public CTA is on-page Book direct (`#book`) only — no personal phone or Gmail. |
 | Photos | Hero is `public/images/home-hero.webp` (same-origin). |
 
 ## Cloudflare Pages settings (Git integration)
@@ -73,7 +73,7 @@ npm run pages:deploy
 ## Blockers
 
 1. **Custom domain** is not attached. Until one is, the public origin is `https://hydrangea-house-d7s.pages.dev`.
-2. **Hospitable live calendar** is not in this repo. Booking is phone + email.
+2. **Hospitable live calendar** is not in this repo. Public booking is the on-page Book direct CTA. Do not publish personal phone or Gmail.
 3. **Deep routes** from the old Lovable app (`/stay`, `/book`, `/gallery`, `/area`, `/journal`, …) should 404. `/golf` 301s to `/auburn-golf-getaway/`.
 4. **Redirects from `clubcreekrental.lovable.app`** cannot be configured in this repo. After you control that hostname, 301 it to `https://hydrangea-house-d7s.pages.dev` (or the future custom domain).
 5. **Search Console / Encited** are not connected to this hostname yet.
