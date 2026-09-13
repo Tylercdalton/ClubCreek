@@ -203,10 +203,8 @@ a {
 .events-source {
   margin-top: 24px;
   color: var(--ink-soft);
-  opacity: 1;
-  text-transform: none;
-  letter-spacing: 0.02em;
   font-size: 13px;
+  line-height: 1.6;
 }
 
 .events-source a {

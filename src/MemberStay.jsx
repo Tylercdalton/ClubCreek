@@ -307,6 +307,7 @@ function ClubEvents() {
             className="btn btn-solid"
             href={AUC_EVENTS_LIST_URL}
             rel="noopener noreferrer"
+            target="_blank"
           >
             AUC upcoming events
           </a>
@@ -314,9 +315,9 @@ function ClubEvents() {
             Book a stay around an event
           </a>
         </div>
-        <p className="fine events-source">
+        <p className="events-source">
           Source: Auburn University Club ·{' '}
-          <a href={AUC_EVENTS_LIST_URL} rel="noopener noreferrer">
+          <a href={AUC_EVENTS_LIST_URL} rel="noopener noreferrer" target="_blank">
             augolfclub.com/category/all-products
           </a>
           . Checked {AUC_EVENTS_CHECKED}.
