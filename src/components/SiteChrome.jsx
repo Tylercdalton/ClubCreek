@@ -1,10 +1,4 @@
-import {
-  HOST_EMAIL,
-  HOST_PHONE_DISPLAY,
-  HOST_PHONE_E164,
-  HOUSE_AKA,
-  SITE_NAME,
-} from '../lib/site.js';
+import { HOUSE_AKA, SITE_NAME } from '../lib/site.js';
 import { GOLF_PATH, GRADUATION_PATH } from '../lib/routes.js';
 
 export function BrandLockup({ href }) {
@@ -131,15 +125,12 @@ export function Footer({ page = 'home' }) {
           </ul>
         </div>
         <div>
-          <p className="eyebrow">Contact</p>
-          <p className="serif footer-kicker">Text or email your hosts.</p>
+          <p className="eyebrow">Book</p>
+          <p className="serif footer-kicker">Book direct with the hosts.</p>
           <p className="body">Auburn, Alabama 36832</p>
           <ul className="footer-contact">
             <li>
-              <a href={`tel:${HOST_PHONE_E164}`}>{HOST_PHONE_DISPLAY}</a>
-            </li>
-            <li>
-              <a href={`mailto:${HOST_EMAIL}`}>{HOST_EMAIL}</a>
+              <a href="#book">Check availability</a>
             </li>
           </ul>
           <p className="fine">Reply within the hour · 8a–8p CT</p>
@@ -159,7 +150,8 @@ export function MobileBookBar({ label = 'Check Availability' }) {
 
 export function Reserve({
   title = 'Check availability',
-  lede = 'Text or email the hosts with your dates. Same house, no third-party service fees.',
+  lede = 'Same house, booked direct — no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
+  cta = 'Book direct',
 }) {
   return (
     <section id="book" className="panel">
@@ -168,11 +160,8 @@ export function Reserve({
         <h2>{title}</h2>
         <p className="body">{lede}</p>
         <div className="cta-row">
-          <a className="btn btn-solid" href={`tel:${HOST_PHONE_E164}`}>
-            {HOST_PHONE_DISPLAY}
-          </a>
-          <a className="btn" href={`mailto:${HOST_EMAIL}`}>
-            {HOST_EMAIL}
+          <a className="btn btn-solid" href="#book">
+            {cta}
           </a>
         </div>
       </div>

@@ -12,7 +12,7 @@ Wave 1 (absolute OG on most routes + sitemap `application/xml`) is already **liv
 - No crawlable `tel:` / `mailto:` in first HTML (footer still Reveal-only)
 - `llms.txt` still titled `# Club Creek`
 - Home HTML has no FAQPage / Review JSON-LD
-- Root schema still city-only (no postalCode / telephone / email)
+- Root schema still city-only (no postalCode). Do not add telephone / email — personal host contact is hidden.
 - Area eyebrow still “Distances from Club Creek”
 - Google Fonts stylesheet still render-blocking
 
@@ -42,31 +42,27 @@ On **every** public route head (index, stay, book, gallery, area, golf, concierg
 
 ## 2. Footer NAP in `__root.tsx` Footer
 
-Visible first-HTML links. Values already in `site.ts` / ContactReveal:
+**Superseded (2026-09 privacy):** do not publish personal phone or Gmail. City + postal code only. Book-direct CTA, no `tel:` / `mailto:`.
 
 ```tsx
-import { HOST_EMAIL, HOST_PHONE_DISPLAY, HOST_PHONE_E164, HOST_POSTAL_CODE } from "@/lib/site";
+import { HOST_POSTAL_CODE } from "@/lib/site";
 ```
-
-In the Contact column, **above** ContactReveal, add:
 
 ```tsx
 <p className="mt-3 text-sm text-cream/90">Auburn, Alabama {HOST_POSTAL_CODE}</p>
 <ul className="mt-3 space-y-1 text-sm">
-  <li><a href={`tel:${HOST_PHONE_E164}`} className="text-cream/90 hover:text-cream">{HOST_PHONE_DISPLAY}</a></li>
-  <li><a href={`mailto:${HOST_EMAIL}`} className="text-cream/90 hover:text-cream">{HOST_EMAIL}</a></li>
+  <li><a href="#book" className="text-cream/90 hover:text-cream">Book direct</a></li>
 </ul>
 ```
 
-Keep ContactReveal as extra UX. Do not invent a street address.
+Do not invent a street address. Do not add personal host contact.
 
 ## 3. Root LodgingBusiness in `__root.tsx`
 
 On the existing LodgingBusiness object add:
 
 - `postalCode: "36832"` (already on `/stay`)
-- `telephone: HOST_PHONE_E164` (`+13347971012`)
-- `email: HOST_EMAIL` (`tdalton508@gmail.com`)
+- **Do not add `telephone` or `email`.** Personal host contact is hidden.
 - Nest `containedInPlace` as Place “Auburn University Club” → City “Auburn”
 - **No `streetAddress`. No AggregateRating.**
 
@@ -104,7 +100,7 @@ Add `<NearJordanHare exclude={["/"]} />` at the bottom of the homepage if missin
 
 `__root.tsx` fonts: keep the existing Google Fonts URL (`display=swap`). Add `rel="preload" as="style"` and load the stylesheet with `media="print"` + `onload="this.media='all'"` plus `<noscript>`.
 
-`public/llms.txt`: primary brand **The Hydrangea House**. Club Creek = nickname only. Include phone `(334) 797-1012`, email `tdalton508@gmail.com`, Auburn AL 36832. Copy the GitHub repo `public/llms.txt` if easiest.
+`public/llms.txt`: primary public brand is **Club Creek**; Hydrangea House is nickname only. Location Auburn AL 36832. Do not include personal phone or email. Copy the GitHub repo `public/llms.txt` if easiest.
 
 `area.tsx`: change eyebrow “Distances from Club Creek” → “Distances from The Hydrangea House”.
 

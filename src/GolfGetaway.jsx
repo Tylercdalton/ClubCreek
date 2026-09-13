@@ -25,7 +25,7 @@ const GOLF_FAQS = [
   },
   {
     q: 'How do we book Club Creek direct for a golf getaway?',
-    a: 'Text or email the hosts with your dates. Bookings are direct, with no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
+    a: 'Use the Book direct section on this page to check dates. Bookings are direct, with no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
   },
 ];
 
@@ -108,7 +108,7 @@ function Why() {
         </p>
         <p className="body">
           Book direct with the hosts. Same house you would find on a listing site, without
-          third-party service fees. Text or email your dates.
+          third-party service fees. Use the Book direct section to request dates.
         </p>
       </div>
     </section>
@@ -257,7 +257,8 @@ export default function GolfGetaway() {
       <Faq />
       <Reserve
         title="Reserve your golf weekend"
-        lede="Text or email the hosts with your dates. Same Club Creek house, booked direct — no third-party service fees."
+        lede="Same Club Creek house, booked direct — no third-party service fees. Use this page to request your golf-weekend dates."
+        cta="Book the golf weekend"
       />
       <Related />
       <Footer page="golf" />

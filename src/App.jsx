@@ -69,7 +69,7 @@ function Stay() {
         </p>
         <p className="body">
           See the <a href="#gallery">photo gallery</a> or{' '}
-          <a href="#book">text the hosts to book direct</a>.
+          <a href="#book">book direct</a>.
         </p>
       </div>
     </section>
@@ -160,7 +160,7 @@ const HOME_FAQS = [
   },
   {
     q: 'Do you book direct, and are there service fees?',
-    a: 'Yes — text or email the hosts to check dates and rates. Bookings are direct, with no third-party service fees.',
+    a: 'Yes — use the Book direct section on this page to check dates and rates. Bookings are direct, with no third-party service fees.',
   },
 ];
 

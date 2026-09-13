@@ -126,7 +126,7 @@ Graduation/golf extend occupancy (10) and `amenityFeature` from on-page lists. H
 
 Internal links: home ↔ graduation ↔ golf; hash links to `#stay` `#gallery` `#auburn` `#concierge` `#book`. Footer and nav include both landing pages.
 
-NAP in first HTML (`tel:+13347971012`, `mailto:tdalton508@gmail.com`, Auburn, Alabama / 36832 in footer after hydrate). No street number.
+Public NAP is city-only (Auburn, Alabama / 36832). Personal phone and email must not appear in first HTML, schema, meta, or footer. No street number.
 
 ## Images / alt / LCP
 
@@ -188,7 +188,7 @@ No copy rewrite. No second graduation URL.
 
 Did **not** exist as a static HTML document. Old Lovable `/golf` 404s here (and was homepage-fallback on live Pages). This PR adds `/auburn-golf-getaway/` with its own title/meta/canonical/OG/FAQ/WebPage schema, nav/footer/sitemap/`llms.txt`, and `/golf` + `/auburn-golf` 301s.
 
-Facts used only: 5BR / 4.5BA, sleeps 10 (1 king / 4 queens), 3,600+ sq ft, Auburn University Club (private golf community), 10-minute drive to campus / Jordan-Hare / Toomer’s, listed amenities, dog fee, golf-cart concierge, phone `(334) 797-1012`, email `tdalton508@gmail.com`. No street address, prices, review scores, or invented RTJ / other-course distances.
+Facts used only: 5BR / 4.5BA, sleeps 10 (1 king / 4 queens), 3,600+ sq ft, Auburn University Club (private golf community), 10-minute drive to campus / Jordan-Hare / Toomer’s, listed amenities, dog fee, golf-cart concierge. No personal phone or email, street address, prices, review scores, or invented RTJ / other-course distances.
 
 ## Prioritized fixes
 

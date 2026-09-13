@@ -25,7 +25,7 @@ const GRAD_FAQS = [
   },
   {
     q: 'How do we book Club Creek direct for graduation?',
-    a: 'Text or email the hosts with your dates. Bookings are direct, with no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
+    a: 'Use the Book direct section on this page to check dates. Bookings are direct, with no third-party service fees. Hosts typically reply within the hour, 8a–8p CT.',
   },
 ];
 
@@ -109,7 +109,7 @@ function Why() {
         </p>
         <p className="body">
           Book direct with the hosts. Same house you would find on a listing site, without
-          third-party service fees. Text or email your dates for spring commencement or the
+          third-party service fees. Use the Book direct section for spring commencement or the
           December ceremony.
         </p>
       </div>
@@ -302,7 +302,8 @@ export default function Graduation() {
       <Faq />
       <Reserve
         title="Reserve your graduation weekend"
-        lede="Text or email the hosts with your spring commencement or December graduation dates. Same Club Creek house, booked direct — no third-party service fees."
+        lede="Same Club Creek house, booked direct — no third-party service fees. Use this page to request spring commencement or December graduation dates."
+        cta="Book graduation weekend"
       />
       <Related />
       <Footer page="graduation" />
