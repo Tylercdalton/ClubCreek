@@ -11,7 +11,11 @@ const ROOT = dirname(fileURLToPath(import.meta.url))
  * Not hydrangea-house.pages.dev (unrelated Kentucky studio).
  */
 const DEFAULT_SITE_URL = 'https://hydrangea-house-d7s.pages.dev'
-const LANDING_DIRS = ['/auburn-graduation-house', '/auburn-golf-getaway']
+const LANDING_DIRS = [
+  '/auburn-graduation-house',
+  '/auburn-golf-getaway',
+  '/auburn-university-club-member-stay',
+]
 
 function resolveSiteUrl(mode) {
   const env = loadEnv(mode, ROOT, '')
@@ -88,6 +92,7 @@ export default defineConfig(({ mode }) => {
           main: resolve(ROOT, 'index.html'),
           graduation: resolve(ROOT, 'auburn-graduation-house/index.html'),
           golf: resolve(ROOT, 'auburn-golf-getaway/index.html'),
+          members: resolve(ROOT, 'auburn-university-club-member-stay/index.html'),
         },
       },
     },

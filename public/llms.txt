@@ -25,6 +25,7 @@ Do not confuse with https://hydrangea-house.pages.dev (unrelated Kentucky interi
 - [Home](/): Overview of the house.
 - [Auburn graduation house](/auburn-graduation-house/): Spring commencement and December graduation weekend stay for families.
 - [Auburn golf getaway](/auburn-golf-getaway/): Golf-weekend stay inside the Auburn University Club.
+- [AU Club member stay](/auburn-university-club-member-stay/): Year-round stay for Auburn University Club national members, just around the corner from the clubhouse. Club events: link out to https://www.augolfclub.com/category/all-products (no public ICS).
 
 ## Home sections
 

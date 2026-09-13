@@ -101,7 +101,7 @@ a {
 .nav-links {
   display: none;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .nav-links .link,
@@ -185,6 +185,30 @@ a {
 .display-page {
   font-size: clamp(2rem, 5.4vw, 4.15rem);
   line-height: 1.02;
+}
+
+.member-logo {
+  display: block;
+  width: min(100%, 280px);
+  height: auto;
+  margin: 0 0 22px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.snapshot-stats {
+  margin: 28px 0 20px;
+}
+
+.events-source {
+  margin-top: 24px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.events-source a {
+  text-underline-offset: 3px;
 }
 
 .crumbs {

@@ -1,5 +1,5 @@
 import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
-import { GOLF_PATH, GRADUATION_PATH } from './lib/routes.js';
+import { GOLF_PATH, GRADUATION_PATH, MEMBER_PATH } from './lib/routes.js';
 import { HERO_IMAGE_PATH, HOUSE_AKA, SITE_NAME } from './lib/site.js';
 
 function Hero() {
@@ -34,8 +34,9 @@ function Hero() {
               </a>
             </div>
             <p className="body hero-note">
-              Here for <a href={GRADUATION_PATH}>Auburn graduation weekend</a> or an{' '}
-              <a href={GOLF_PATH}>Auburn golf getaway</a>?
+              Here for <a href={GRADUATION_PATH}>Auburn graduation weekend</a>, an{' '}
+              <a href={GOLF_PATH}>Auburn golf getaway</a>, or an{' '}
+              <a href={MEMBER_PATH}>AU Club member stay</a>?
             </p>
           </div>
           <div className="slot-frame">
@@ -65,7 +66,9 @@ function Stay() {
         <p className="body">
           Families booking Auburn University graduation weekend — spring commencement or
           December — can start on the{' '}
-          <a href={GRADUATION_PATH}>Auburn graduation house</a> page.
+          <a href={GRADUATION_PATH}>Auburn graduation house</a> page. Auburn University Club
+          national members who stay year-round can start on the{' '}
+          <a href={MEMBER_PATH}>AU Club member stay</a> page.
         </p>
         <p className="body">
           See the <a href="#gallery">photo gallery</a> or{' '}
@@ -123,7 +126,8 @@ function Auburn() {
         <p className="body">
           Planning commencement instead of a home game? The{' '}
           <a href={GRADUATION_PATH}>graduation house guide</a> covers spring and December
-          weekends.
+          weekends. Auburn University Club national members looking for a year-round stay
+          should use the <a href={MEMBER_PATH}>AU Club member stay</a> page.
         </p>
       </div>
     </section>
