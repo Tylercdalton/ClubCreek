@@ -1,5 +1,6 @@
-import { Reserve, SiteFrame, StatLine } from './components/SiteChrome.jsx';
-import { GRADUATION_PATH, HERO_IMAGE_PATH } from './lib/site.js';
+import { Footer, MobileBookBar, Nav, Reserve, StatLine } from './components/SiteChrome.jsx';
+import { GOLF_PATH, GRADUATION_PATH } from './lib/routes.js';
+import { HERO_IMAGE_PATH, HOUSE_AKA, SITE_NAME } from './lib/site.js';
 
 function Hero() {
   return (
@@ -12,10 +13,11 @@ function Hero() {
         <div className="hero-grid">
           <div>
             <h1 className="display">
-              The Hydrangea
+              Club
               <br />
-              <span className="display-italic">House</span>
+              <span className="display-italic">Creek</span>
             </h1>
+            <p className="nickname">{HOUSE_AKA}</p>
             <p className="serif lede">
               A serene retreat for game days, gatherings &amp; quiet weekends — a private
               five-bedroom home inside the Auburn University Club.
@@ -26,17 +28,22 @@ function Hero() {
               <StatLine v="10+" l="SLEEPS" />
               <StatLine v="3,600+" l="SQ FT" />
             </div>
-            <div className="hero-actions">
+            <div className="cta-row">
               <a className="btn btn-solid" href="#book">
                 Check Availability
               </a>
-              <a className="btn" href={GRADUATION_PATH}>
-                Graduation Weekend
-              </a>
             </div>
+            <p className="body hero-note">
+              Here for <a href={GRADUATION_PATH}>Auburn graduation weekend</a> or an{' '}
+              <a href={GOLF_PATH}>Auburn golf getaway</a>?
+            </p>
           </div>
           <div className="slot-frame">
-            <img src={HERO_IMAGE_PATH} alt="Front exterior of The Hydrangea House at sunset in Auburn, Alabama" />
+            <img
+              src={HERO_IMAGE_PATH}
+              alt={`Front exterior of ${SITE_NAME} at sunset in Auburn, Alabama`}
+              fetchPriority="high"
+            />
           </div>
         </div>
       </div>
@@ -51,14 +58,17 @@ function Stay() {
         <p className="eyebrow">The House</p>
         <h2>Five bedrooms, a chef&apos;s kitchen, a lawn of hydrangeas.</h2>
         <p className="body">
-          The Hydrangea House (Club Creek to friends and family) is a private five-bedroom,
-          4.5-bath rental in Auburn, Alabama. Ten minutes from Jordan-Hare Stadium, built for
-          game weekends, Camp War Eagle, and quiet weeks on The Plains.
+          {SITE_NAME} ({HOUSE_AKA}) is a private five-bedroom, 4.5-bath rental in Auburn,
+          Alabama. Ten minutes from Jordan-Hare Stadium, built for game weekends, Camp War
+          Eagle, and quiet weeks on The Plains.
         </p>
         <p className="body">
-          Coming for Auburn University commencement? See the{' '}
-          <a href={GRADUATION_PATH}>Auburn graduation house</a> page, the{' '}
-          <a href="#gallery">photo gallery</a>, or{' '}
+          Families booking Auburn University graduation weekend — spring commencement or
+          December — can start on the{' '}
+          <a href={GRADUATION_PATH}>Auburn graduation house</a> page.
+        </p>
+        <p className="body">
+          See the <a href="#gallery">photo gallery</a> or{' '}
           <a href="#book">text the hosts to book direct</a>.
         </p>
       </div>
@@ -73,7 +83,7 @@ function Gallery() {
         <p className="eyebrow">Gallery</p>
         <h2>Inside the house</h2>
         <div className="gallery-row">
-          <img src={HERO_IMAGE_PATH} alt="The Hydrangea House exterior at sunset" />
+          <img src={HERO_IMAGE_PATH} alt={`${SITE_NAME} exterior at sunset`} />
         </div>
       </div>
     </section>
@@ -104,12 +114,16 @@ function Auburn() {
         <p className="eyebrow">Auburn</p>
         <h2>On the Plains</h2>
         <p className="body">
-          Distances from The Hydrangea House: about ten minutes to Jordan-Hare, Toomer&apos;s
-          Corner, and campus. The house sits inside the Auburn University Club, a private golf
-          community. Golf and campus notes live in this{' '}
-          <a href="#auburn">Auburn section</a>; <a href="#book">ask the hosts</a> when you
-          book. Families here for commencement can start on the{' '}
-          <a href={GRADUATION_PATH}>Auburn graduation weekend</a> page.
+          Distances from {SITE_NAME}: about ten minutes to Jordan-Hare, Toomer&apos;s Corner,
+          and campus. The house sits inside the Auburn University Club, a private golf
+          community. Golf-weekend details live on the{' '}
+          <a href={GOLF_PATH}>Auburn golf getaway</a> page; <a href="#book">ask the hosts</a>{' '}
+          when you book.
+        </p>
+        <p className="body">
+          Planning commencement instead of a home game? The{' '}
+          <a href={GRADUATION_PATH}>graduation house guide</a> covers spring and December
+          weekends.
         </p>
       </div>
     </section>
@@ -133,7 +147,7 @@ function Review() {
 
 const HOME_FAQS = [
   {
-    q: 'How many guests can the Hydrangea House sleep?',
+    q: 'How many guests can Club Creek sleep?',
     a: 'The house sleeps 10 across five bedrooms — one king bed and four queen beds — with 4.5 baths so no one is doubling up.',
   },
   {
@@ -183,7 +197,8 @@ function Concierge() {
 
 export default function App() {
   return (
-    <SiteFrame page="home">
+    <>
+      <Nav page="home" />
       <Hero />
       <Stay />
       <Gallery />
@@ -193,6 +208,8 @@ export default function App() {
       <Faq />
       <Concierge />
       <Reserve />
-    </SiteFrame>
+      <Footer page="home" />
+      <MobileBookBar />
+    </>
   );
 }
